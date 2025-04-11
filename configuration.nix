@@ -11,6 +11,7 @@
 			./system/boot.nix
 			./system/time.nix
 			./system/lang.nix
+			./system/hyprland.nix
 		];
 
 
