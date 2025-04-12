@@ -29,13 +29,6 @@
   networking.networkmanager.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.richard = {
-    isNormalUser = true;
-    description = "richard";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [];
-  };
-
   users.users.tebro = {
     isNormalUser = true;
     description = "tebro";
@@ -48,15 +41,6 @@
     extraRules = [
       {
         users = ["tebro"];
-        commands = [
-          {
-            command = "ALL";
-            options = ["NOPASSWD"];
-          }
-        ];
-      }
-      {
-        users = ["richard"];
         commands = [
           {
             command = "ALL";
