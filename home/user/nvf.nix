@@ -15,9 +15,14 @@
           nvim-web-devicons.enable = true;
         };
 
+        statusline.lualine = {
+          enable = true;
+        };
+
         globals = {
           mapLeader = "space";
         };
+
         options = {
           tabstop = 2;
           shiftwidth = 2;
@@ -61,6 +66,14 @@
         };
 
         git.enable = true;
+
+        terminal = {
+          toggleterm = {
+            enable = true;
+            mappings.open = "<leader>tt";
+            setupOpts.winbar.enabled = false;
+          };
+        };
 
         languages = {
           nix = {
@@ -181,6 +194,17 @@
             mode = "n";
             key = "<C-W>m";
             action = "<C-W>|<C-W>_";
+          }
+          # fd esc
+          {
+            mode = ["i" "v"];
+            key = "fd";
+            action = "<Esc>";
+          }
+          {
+            mode = "t";
+            key = "fd";
+            action = "<C-\\><C-n>";
           }
         ];
       };
