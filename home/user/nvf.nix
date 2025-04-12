@@ -5,6 +5,16 @@
       vim = {
         vimAlias = true;
 
+        theme = {
+          enable = true;
+          style = "mocha";
+          name = "catppuccin";
+        };
+
+        visuals = {
+          nvim-web-devicons.enable = true;
+        };
+
         globals = {
           mapLeader = "space";
         };
@@ -20,6 +30,10 @@
           termguicolors = true;
           scrolloff = 8;
           relativenumber = true;
+        };
+
+        mini = {
+          icons.enable = true;
         };
 
         diagnostics = {
@@ -67,7 +81,15 @@
         };
 
         utility = {
-          oil-nvim.enable = true;
+          oil-nvim = {
+            enable = true;
+            setupOpts = {
+              win_options = {
+                winbar = "%#@attribute.builtin#%{substitute(v:lua.require('oil').get_current_dir(), '^' . $HOME, '~', '')}";
+              };
+            };
+          };
+          surround.enable = true;
           motion.flash-nvim = {
             enable = true;
             mappings = {
