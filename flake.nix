@@ -22,16 +22,26 @@
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixosvm = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ./configuration.nix
+        ./hosts/nixosvm.nix
       ];
       specialArgs = {
         inherit pkgs;
         inherit pkgs-unstable;
       };
     };
+    #nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
+    #  inherit system;
+    #  modules = [
+    #    ./hosts/hornet.nix
+    #  ];
+    #  specialArgs = {
+    #    inherit pkgs;
+    #    inherit pkgs-unstable;
+    #  };
+    #};
     homeConfigurations = {
       tebro = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
