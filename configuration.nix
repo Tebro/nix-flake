@@ -27,31 +27,42 @@
 	# Enable networking
 	networking.networkmanager.enable = true;
 
-
-
 	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users.richard = {
 		isNormalUser = true;
 		description = "richard";
+		extraGroups = [ "networkmanager" "wheel" ];
+		packages = with pkgs; [];
+	};
+
+	users.users.tebro = {
+		isNormalUser = true;
+		description = "tebro";
 		extraGroups = [ "networkmanager" ];
 		packages = with pkgs; [];
 	};
 
 	security.sudo = {
 		enable = true;
-		extraRules = [{
-			users = ["richard"];
+		extraRules = [
+		{ users = ["tebro"];
 			commands = [
 				{command = "ALL"; options = ["NOPASSWD"];}
 			];
-		}];
+		}
+		{ users = ["richard"];
+			commands = [
+				{command = "ALL"; options = ["NOPASSWD"];}
+			];
+		}
+		];
 	};
 	security.polkit.enable = true;
 
 	environment.variables.EDITOR = "nvim";
 
 	# Enable automatic login for the user.
-	services.getty.autologinUser = "richard";
+	#services.getty.autologinUser = "richard";
 
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
@@ -70,6 +81,7 @@
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
 		pkgs-unstable.neovim
+		bat
 		wget
 		git
 		gnumake
