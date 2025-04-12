@@ -11,54 +11,25 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./system/boot.nix
+    ./system/users.nix
     ./system/time.nix
     ./system/lang.nix
+    ./system/networking.nix
     ./system/nixsettings.nix
     ./system/polkit.nix
     ./system/sound.nix
+    ./system/firewall.nix
+    ./system/services.nix
+    ./system/sshd.nix
     ./system/hyprland.nix
   ];
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tebro = {
-    isNormalUser = true;
-    description = "tebro";
-    extraGroups = ["networkmanager"];
-    packages = with pkgs; [];
-  };
-
-  security.sudo = {
-    enable = true;
-    extraRules = [
-      {
-        users = ["tebro"];
-        commands = [
-          {
-            command = "ALL";
-            options = ["NOPASSWD"];
-          }
-        ];
-      }
-    ];
-  };
-  security.polkit.enable = true;
 
   environment.variables.EDITOR = "nvim";
 
   # Enable automatic login for the user.
-  #services.getty.autologinUser = "richard";
+  #services.getty.autologinUser = "user";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -86,16 +57,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.dbus.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
