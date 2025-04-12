@@ -13,7 +13,9 @@
     ./system/boot.nix
     ./system/time.nix
     ./system/lang.nix
+    ./system/nixsettings.nix
     ./system/polkit.nix
+    ./system/sound.nix
     ./system/hyprland.nix
   ];
 
@@ -57,18 +59,6 @@
 
   # Enable automatic login for the user.
   #services.getty.autologinUser = "richard";
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
