@@ -6,9 +6,10 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		home-manager.url = "github:nix-community/home-manager/release-24.11";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
+		nvf.url = "github:notashelf/nvf";
 	};
 
-	outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
+	outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nvf, ... }@inputs: 
 		let 
 			lib = nixpkgs.lib;
 			system = "x86_64-linux";
@@ -31,7 +32,10 @@
 			homeConfigurations = {
 				tebro = home-manager.lib.homeManagerConfiguration {
 					inherit pkgs;
-					modules = [ ./home ];
+					modules = [ 
+						nvf.homeManagerModules.default
+						./home 
+					];
 					extraSpecialArgs = {
 						inherit pkgs-unstable;
 						inherit inputs;
