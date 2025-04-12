@@ -13,6 +13,7 @@
     ./system/boot.nix
     ./system/time.nix
     ./system/lang.nix
+    ./system/polkit.nix
     ./system/hyprland.nix
   ];
 
@@ -60,15 +61,14 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  #sound.enable = true;
-  #security.rtkit.enable = true;
-  #services.pipewire = {
-  #  enable = true;
-  #  alsa.enable = true;
-  #  alsa.support32Bit = true;
-  #  pulse.enable = true;
-  #  jack.enable = true;
-  #};
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
