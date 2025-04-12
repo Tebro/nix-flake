@@ -35,6 +35,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     pkgs-unstable.neovim
+    neovide
     bat
     wget
     git
