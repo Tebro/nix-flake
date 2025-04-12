@@ -90,6 +90,7 @@
 		xfce.thunar
 		playerctl
 		tmux
+		home-manager
 	];
 
 
