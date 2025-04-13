@@ -32,16 +32,16 @@
         inherit pkgs-unstable;
       };
     };
-    #nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
-    #  inherit system;
-    #  modules = [
-    #    ./hosts/hornet.nix
-    #  ];
-    #  specialArgs = {
-    #    inherit pkgs;
-    #    inherit pkgs-unstable;
-    #  };
-    #};
+    nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./hosts/hornet.nix
+      ];
+      specialArgs = {
+        inherit pkgs;
+        inherit pkgs-unstable;
+      };
+    };
     homeConfigurations = {
       tebro = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
