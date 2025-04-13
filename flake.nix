@@ -30,7 +30,6 @@
         ./hosts/nixosvm.nix
       ];
       specialArgs = {
-        inherit pkgs;
         inherit pkgs-unstable;
       };
     };
@@ -40,7 +39,6 @@
         ./hosts/hornet.nix
       ];
       specialArgs = {
-        inherit pkgs;
         inherit pkgs-unstable;
       };
     };
