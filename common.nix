@@ -15,6 +15,7 @@
     ./system/sound.nix
     ./system/firewall.nix
     ./system/services.nix
+    ./system/flatpak.nix
     ./system/hyprland.nix
   ];
   # List packages installed in system profile. To search, run:
@@ -33,6 +34,7 @@
     playerctl
     tmux
     home-manager
+    tldr
   ];
 
   environment.variables.EDITOR = "nvim";
