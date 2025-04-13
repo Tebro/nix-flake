@@ -38,6 +38,8 @@
     home-manager
     tldr
     discord
+    pavucontrol
+    wireplumber
   ];
 
   environment.variables.EDITOR = "nvim";
