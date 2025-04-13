@@ -14,4 +14,12 @@
       allowUnfree = true;
     };
   };
+
+  # WIP stuff, to move later
+  catppuccin.enable = true;
+  catppuccin.dunst.enable = true;
+  catppuccin.gtk.enable = true;
+  catppuccin.ghostty.enable = true;
+
+  programs.fzf.enable = true;
 }

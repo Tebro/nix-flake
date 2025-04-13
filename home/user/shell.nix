@@ -10,5 +10,12 @@
       hm = "home-manager --flake ~/flake switch -b backup";
       full = "rebuild && hm";
     };
+
+    bashrcExtra = ''
+      if command -v fzf-share >/dev/null; then
+        source "$(fzf-share)/key-bindings.bash"
+        source "$(fzf-share)/completion.bash"
+      fi
+    '';
   };
 }

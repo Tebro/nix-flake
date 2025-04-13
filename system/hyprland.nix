@@ -9,6 +9,8 @@
     xwayland.enable = true;
   };
 
+  programs.nm-applet.enable = true;
+
   environment.systemPackages = with pkgs; [
     waybar
     rofi-wayland
@@ -16,6 +18,8 @@
     swww
     kitty
     ghostty
+    wl-clipboard
+    networkmanagerapplet
   ];
 
   xdg.portal.enable = true;
