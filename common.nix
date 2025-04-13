@@ -14,6 +14,7 @@
     ./system/polkit.nix
     ./system/sound.nix
     ./system/firewall.nix
+    ./system/virtualisation.nix
     ./system/services.nix
     ./system/flatpak.nix
     ./system/hyprland.nix
