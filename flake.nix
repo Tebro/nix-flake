@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:notashelf/nvf";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
@@ -15,6 +16,7 @@
     nixpkgs-unstable,
     home-manager,
     nvf,
+    catppuccin,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -47,6 +49,7 @@
         inherit pkgs;
         modules = [
           nvf.homeManagerModules.default
+          catppuccin.homeModules.catppuccin
           ./home
         ];
         extraSpecialArgs = {
