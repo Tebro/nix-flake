@@ -18,6 +18,7 @@
     ./system/services.nix
     ./system/flatpak.nix
     ./system/hyprland.nix
+    ./system/certificates.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
