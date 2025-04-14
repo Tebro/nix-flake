@@ -17,12 +17,9 @@
     nvf,
     catppuccin,
     ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    #pkgs = nixpkgs.legacyPackages.${system};
-  in {
+  } @ inputs: {
     nixosConfigurations.nixosvm = nixpkgs.lib.nixosSystem {
-      inherit system;
+      system = "x86_64-linux";
       modules = [
         catppuccin.nixosModules.catppuccin
         ./hosts/nixosvm.nix
@@ -32,7 +29,7 @@
       };
     };
     nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
-      inherit system;
+      system = "x86_64-linux";
       modules = [
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
@@ -43,9 +40,9 @@
           home-manager.useUserPackages = true;
           home-manager.users.tebro = {
             imports = [
-              catppuccin.homeModules.catppuccin
-              nvf.homeManagerModules.default
               ./home
+              nvf.homeManagerModules.default
+              catppuccin.homeModules.catppuccin
             ];
           };
         }

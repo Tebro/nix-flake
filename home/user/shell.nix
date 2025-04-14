@@ -9,8 +9,6 @@
       g = "git";
       rebuild = "sudo nixos-rebuild --flake ~/flake switch";
       cat = "bat";
-      #hm = "home-manager --flake ~/flake switch -b backup";
-      #full = "rebuild && hm";
     };
 
     bashrcExtra = ''
