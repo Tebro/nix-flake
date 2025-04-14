@@ -19,7 +19,14 @@
     ./system/flatpak.nix
     ./system/hyprland.nix
     ./system/certificates.nix
+		./system/gaming.nix
   ];
+	
+	hardware.graphics = {
+		enable = true;
+		enable32bit = true;
+	};
+
 
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
