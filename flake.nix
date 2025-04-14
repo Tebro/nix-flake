@@ -18,7 +18,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    #pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations.nixosvm = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -34,23 +34,23 @@
       inherit system;
       modules = [
         catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
         ./hosts/hornet.nix
+
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.tebro = {
+            imports = [
+              catppuccin.homeModules.catppuccin
+              nvf.homeManagerModules.default
+              ./home
+            ];
+          };
+        }
       ];
       specialArgs = {
         inherit inputs;
-      };
-    };
-    homeConfigurations = {
-      tebro = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          catppuccin.homeModules.catppuccin
-          nvf.homeManagerModules.default
-          ./home
-        ];
-        extraSpecialArgs = {
-          inherit inputs;
-        };
       };
     };
   };

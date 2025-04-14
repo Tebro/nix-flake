@@ -8,8 +8,8 @@
       ll = "ls -lA -F --color=auto";
       g = "git";
       rebuild = "sudo nixos-rebuild --flake ~/flake switch";
-      hm = "home-manager --flake ~/flake switch -b backup";
-      full = "rebuild && hm";
+      #hm = "home-manager --flake ~/flake switch -b backup";
+      #full = "rebuild && hm";
     };
 
     bashrcExtra = ''
