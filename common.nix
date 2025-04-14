@@ -41,6 +41,7 @@
     discord
     pavucontrol
     wireplumber
+    slack
   ];
 
   environment.variables.EDITOR = "nvim";
