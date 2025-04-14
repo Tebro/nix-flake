@@ -65,6 +65,16 @@
           enable = true;
         };
 
+        assistant = {
+          codecompanion-nvim = {
+            enable = true;
+          };
+          copilot = {
+            enable = true;
+            cmp.enable = true;
+          };
+        };
+
         git.enable = true;
 
         terminal = {
