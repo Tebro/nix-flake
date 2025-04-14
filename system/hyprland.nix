@@ -20,6 +20,7 @@
     ghostty
     wl-clipboard
     networkmanagerapplet
+		nwg-displays
   ];
 
   xdg.portal.enable = true;
