@@ -103,6 +103,7 @@
             };
           };
           surround.enable = true;
+          surround.useVendoredKeybindings = false;
           motion.flash-nvim = {
             enable = true;
             mappings = {
