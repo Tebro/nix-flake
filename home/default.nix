@@ -15,4 +15,8 @@
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
+  catppuccin.hyprland.enable = true;
+  catppuccin.rofi.enable = true;
+  catppuccin.ghostty.enable = true;
+  catppuccin.gtk.enable = true;
 }

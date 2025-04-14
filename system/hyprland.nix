@@ -13,7 +13,7 @@
 
   environment.systemPackages = with pkgs; [
     waybar
-    wofi
+    rofi-wayland
     dunst
     swww
     kitty

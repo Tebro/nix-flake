@@ -32,7 +32,6 @@
   environment.systemPackages = with pkgs; [
     neovim
     neovide
-    bat
     wget
     git
     gnumake
@@ -42,13 +41,16 @@
     xfce.thunar
     playerctl
     tmux
-    home-manager
     tldr
     discord
     pavucontrol
     wireplumber
     slack
   ];
+
+  programs = {
+    bat.enable = true;
+  };
 
   environment.variables.EDITOR = "nvim";
   catppuccin.flavor = "mocha";
