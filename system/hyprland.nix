@@ -28,7 +28,8 @@
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
   ];
 
   services.physlock = {

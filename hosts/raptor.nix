@@ -4,7 +4,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   imports = [
@@ -13,8 +12,7 @@
   ];
   networking.hostName = "raptor"; # Define your hostname.
 
-	services.xserver.videoDrivers = ["amdgpu"];
-
+  services.xserver.videoDrivers = ["amdgpu"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
