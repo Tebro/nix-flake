@@ -10,9 +10,9 @@
   imports = [
     ./hornet-hardware-configuration.nix
     ../common.nix
+    ../system/power_laptop.nix
   ];
   networking.hostName = "hornet"; # Define your hostname.
-
 
   boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/1f875867-738c-4ae4-ba3f-bf27363fdead";
 
