@@ -8,14 +8,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:notashelf/nvf";
     catppuccin.url = "github:catppuccin/nix";
-		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = {
     self,
     nixpkgs,
     nixpkgs-unstable,
-		nixos-hardware,
+    nixos-hardware,
     home-manager,
     nvf,
     catppuccin,
@@ -40,7 +40,7 @@
       inherit system;
       modules = [
         ./hosts/hornet.nix
-				nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel
+        nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel
       ];
       specialArgs = {
         inherit inputs;
