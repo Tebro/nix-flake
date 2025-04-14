@@ -17,13 +17,13 @@
     catppuccin,
     ...
   } @ inputs: let
-    lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations.nixosvm = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
+        catppuccin.nixosModules.catppuccin
         ./hosts/nixosvm.nix
       ];
       specialArgs = {
@@ -33,6 +33,7 @@
     nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
+        catppuccin.nixosModules.catppuccin
         ./hosts/hornet.nix
       ];
       specialArgs = {
@@ -43,8 +44,8 @@
       tebro = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          nvf.homeManagerModules.default
           catppuccin.homeModules.catppuccin
+          nvf.homeManagerModules.default
           ./home
         ];
         extraSpecialArgs = {

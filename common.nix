@@ -51,4 +51,6 @@
   ];
 
   environment.variables.EDITOR = "nvim";
+  catppuccin.flavor = "mocha";
+  catppuccin.enable = true;
 }
