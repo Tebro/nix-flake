@@ -8,6 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:notashelf/nvf";
     catppuccin.url = "github:catppuccin/nix";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -30,6 +31,7 @@
         ./hosts/nixosvm.nix
       ];
       specialArgs = {
+        inherit inputs;
         inherit pkgs-unstable;
       };
     };
@@ -39,6 +41,7 @@
         ./hosts/hornet.nix
       ];
       specialArgs = {
+        inherit inputs;
         inherit pkgs-unstable;
       };
     };
