@@ -8,7 +8,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:notashelf/nvf";
     catppuccin.url = "github:catppuccin/nix";
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
