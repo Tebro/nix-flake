@@ -17,6 +17,7 @@
     dunst
     swww
     kitty
+    physlock
     ghostty
     wl-clipboard
     networkmanagerapplet
@@ -29,4 +30,9 @@
   fonts.packages = with pkgs; [
     nerdfonts
   ];
+
+  services.physlock = {
+    enable = true;
+    allowAnyUser = true;
+  };
 }
