@@ -1,10 +1,9 @@
 {
+  imports = [./waybar.nix];
   programs.rofi.enable = true;
-  programs.waybar.enable = true;
   catppuccin = {
     hyprland.enable = true;
     rofi.enable = true;
-    waybar.enable = true;
   };
   wayland.windowManager.hyprland = {
     enable = true;
@@ -14,7 +13,7 @@
 
       "$terminal" = "ghostty";
       "$fileManager" = "thunar";
-      "$menu" = "rofi -show drun";
+      "$menu" = "rofi -show drun -show-icons";
 
       exec-once = [
         "nm-applet"
@@ -47,7 +46,7 @@
 
         # Change transparency of focused and unfocused windows
         active_opacity = 1.0;
-        inactive_opacity = 1.0;
+        inactive_opacity = 0.8;
 
         shadow = {
           enabled = true;
@@ -201,6 +200,8 @@
       windowrulev2 = [
         # Ignore maximize requests from apps. You'll probably like this.
         "suppressevent maximize, class:.*"
+        # No opacity for waybar
+        "opacity 1.0 override 1.0 override 1.0, class:waybar"
         # Fix some dragging issues with XWayland
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
