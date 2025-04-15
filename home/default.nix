@@ -16,11 +16,6 @@
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
 
-  catppuccin.hyprland.enable = true;
-
-  programs.rofi.enable = true;
-  catppuccin.rofi.enable = true;
-
   programs.ghostty.enable = true;
   catppuccin.ghostty.enable = true;
 
@@ -34,7 +29,4 @@
   programs.btop.enable = true;
   programs.ripgrep.enable = true;
   programs.tmux.enable = true;
-
-	wayland.windowManager.hyprland.enable = true;
-	programs.waybar.enable = true;
 }

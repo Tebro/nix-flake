@@ -1,7 +1,8 @@
 {
   imports = [
-    ./config.nix
+    #./config.nix
     ./git.nix
+    ./hyprland.nix
     ./shell.nix
     ./nvf.nix
   ];
