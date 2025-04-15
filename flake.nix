@@ -52,5 +52,29 @@
         inherit inputs;
       };
     };
+    nixosConfigurations.raptor = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
+        ./hosts/raptor.nix
+
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+          home-manager.users.tebro = {
+            imports = [
+              ./home
+              nvf.homeManagerModules.default
+              catppuccin.homeModules.catppuccin
+            ];
+          };
+        }
+      ];
+      specialArgs = {
+        inherit inputs;
+      };
+    };
   };
 }
