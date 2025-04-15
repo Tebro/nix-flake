@@ -1,9 +1,11 @@
 {
   imports = [./waybar.nix];
   programs.rofi.enable = true;
+  services.dunst.enable = true;
   catppuccin = {
     hyprland.enable = true;
     rofi.enable = true;
+    dunst.enable = true;
   };
   wayland.windowManager.hyprland = {
     enable = true;
