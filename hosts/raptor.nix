@@ -14,6 +14,8 @@
 
   services.xserver.videoDrivers = ["amdgpu"];
 
+	# May need to figure out protopedal for steering wheel
+	# https://gitlab.com/openirseny/protopedal
   # TMFF2 driver for steering wheel
   #boot = {
   #  blacklistedKernelModules = ["hid-thrustmaster"];
