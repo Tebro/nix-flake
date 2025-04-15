@@ -29,26 +29,17 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
-    neovide
     wget
-    git
     gnumake
     gcc
-    btop
-    ripgrep
     xfce.thunar
     playerctl
-    tmux
     tldr
     discord
     pavucontrol
     wireplumber
     slack
   ];
-
-  programs = {
-    bat.enable = true;
-  };
 
   environment.variables.EDITOR = "nvim";
   catppuccin.flavor = "mocha";
