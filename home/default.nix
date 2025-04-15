@@ -34,4 +34,7 @@
   programs.btop.enable = true;
   programs.ripgrep.enable = true;
   programs.tmux.enable = true;
+
+	wayland.windowManager.hyprland.enable = true;
+	programs.waybar.enable = true;
 }
