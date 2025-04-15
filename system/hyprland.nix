@@ -22,6 +22,7 @@
     wl-clipboard
     networkmanagerapplet
     nwg-displays
+    brightnessctl
   ];
 
   xdg.portal.enable = true;
