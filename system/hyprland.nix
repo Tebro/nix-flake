@@ -23,14 +23,17 @@
     networkmanagerapplet
     nwg-displays
     brightnessctl
+    xdg-user-dirs
   ];
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
+  fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
+    liberation_ttf
   ];
 
   services.physlock = {
