@@ -12,6 +12,9 @@
   home.username = "tebro";
   home.homeDirectory = "/home/tebro";
   home.stateVersion = "24.11";
+  home.packages = with pkgs; [
+    liberation_ttf
+  ];
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
