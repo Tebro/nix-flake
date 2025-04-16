@@ -32,6 +32,7 @@
     wget
     gnumake
     gcc
+    gdb
     xfce.thunar
     playerctl
     tldr
