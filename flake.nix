@@ -5,7 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nvf.url = "github:notashelf/nvf";
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
     #awsvpn.url = "path:/home/tebro/tmp/awsvpn";
@@ -15,7 +14,6 @@
     self,
     nixpkgs,
     home-manager,
-    nvf,
     catppuccin,
     #awsvpn,
     ...
@@ -47,7 +45,6 @@
           home-manager.users.tebro = {
             imports = [
               ./home
-              nvf.homeManagerModules.default
               catppuccin.homeModules.catppuccin
             ];
           };
@@ -71,7 +68,6 @@
           home-manager.users.tebro = {
             imports = [
               ./home
-              nvf.homeManagerModules.default
               catppuccin.homeModules.catppuccin
             ];
           };

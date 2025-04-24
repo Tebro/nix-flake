@@ -4,6 +4,5 @@
     ./git.nix
     ./hyprland.nix
     ./shell.nix
-    ./nvf.nix
   ];
 }
