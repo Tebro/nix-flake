@@ -14,6 +14,7 @@
   home.stateVersion = "24.11";
   home.packages = with pkgs; [
     liberation_ttf
+		nodejs_20
   ];
 
   catppuccin.flavor = "mocha";
