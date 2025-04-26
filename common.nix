@@ -31,18 +31,23 @@
     neovim
     wget
     gnumake
-    gcc
-    gdb
-    xfce.thunar
-    playerctl
-    tldr
-    discord
-    pavucontrol
-    wireplumber
-    slack
-  ];
+		gcc
+		gdb
+		xfce.thunar
+		playerctl
+		tldr
+		discord
+		pavucontrol
+		wireplumber
+		slack
+	];
 
-  environment.variables.EDITOR = "nvim";
-  catppuccin.flavor = "mocha";
-  catppuccin.enable = true;
+	services.displayManager.sddm.enable = true;
+	services.displayManager.defaultSession = "plasma";
+	services.displayManager.sddm.wayland.enable = true;
+	services.desktopManager.plasma6.enable = true;
+
+	environment.variables.EDITOR = "nvim";
+	catppuccin.flavor = "mocha";
+	catppuccin.enable = true;
 }

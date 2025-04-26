@@ -17,11 +17,12 @@
   powerManagement = {
     enable = true;
     powertop.enable = true;
-  };
+	};
 
-  services.power-profiles-daemon.enable = true;
+	services.power-profiles-daemon.enable = true;
+	hardware.bluetooth.enable = true;
 
-  environment.systemPackages = with pkgs; [
+	environment.systemPackages = with pkgs; [
     powertop
   ];
 
