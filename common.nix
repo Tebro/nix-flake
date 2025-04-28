@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-	inputs,
-  ...
-}: {
+{ config, pkgs, inputs, ... }: {
   imports = [
     ./system/boot.nix
     ./system/users.nix
@@ -20,6 +15,7 @@
     ./system/hyprland.nix
     ./system/certificates.nix
     ./system/gaming.nix
+    ./system/shell.nix
   ];
 
   hardware.graphics = {
@@ -32,27 +28,28 @@
     neovim
     wget
     gnumake
-		gcc
-		gdb
-		rustc
-		cargo
-		xfce.thunar
-		playerctl
-		tldr
-		discord
-		pavucontrol
-		wireplumber
-		slack
-		winbox4
-		inputs.openaws-vpn-client.defaultPackage.x86_64-linux
-	];
+    gcc
+    gdb
+    rustc
+    cargo
+    xfce.thunar
+    playerctl
+    tldr
+    discord
+    pavucontrol
+    wireplumber
+    slack
+    signal-desktop
+    winbox4
+    inputs.openaws-vpn-client.defaultPackage.x86_64-linux
+  ];
 
-	services.displayManager.sddm.enable = true;
-		services.displayManager.defaultSession = "hyprland";
-	services.displayManager.sddm.wayland.enable = true;
-	services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.defaultSession = "hyprland";
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
-	environment.variables.EDITOR = "nvim";
-	catppuccin.flavor = "mocha";
-	catppuccin.enable = true;
+  environment.variables.EDITOR = "nvim";
+  catppuccin.flavor = "mocha";
+  catppuccin.enable = true;
 }
