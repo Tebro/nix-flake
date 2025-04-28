@@ -43,6 +43,7 @@
 		pavucontrol
 		wireplumber
 		slack
+		winbox4
 		inputs.openaws-vpn-client.defaultPackage.x86_64-linux
 	];
 
