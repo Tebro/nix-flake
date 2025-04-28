@@ -7,15 +7,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
-    #awsvpn.url = "path:/home/tebro/tmp/awsvpn";
+		openaws-vpn-client.url = "github:jonathanxD/openaws-vpn-client";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    catppuccin,
-    #awsvpn,
+		catppuccin,
+		openaws-vpn-client,
     ...
   } @ inputs: {
     nixosConfigurations.nixosvm = nixpkgs.lib.nixosSystem {
@@ -34,10 +34,6 @@
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         ./hosts/hornet.nix
-        #awsvpn.nixosModules.awsvpnclient
-        #{
-        #  services.awsvpnclient.enable = true;
-        #}
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

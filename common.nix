@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+	inputs,
   ...
 }: {
   imports = [
@@ -40,10 +41,11 @@
 		pavucontrol
 		wireplumber
 		slack
+		inputs.openaws-vpn-client.defaultPackage.x86_64-linux
 	];
 
 	services.displayManager.sddm.enable = true;
-	services.displayManager.defaultSession = "plasma";
+		services.displayManager.defaultSession = "hyprland";
 	services.displayManager.sddm.wayland.enable = true;
 	services.desktopManager.plasma6.enable = true;
 
