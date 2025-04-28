@@ -10,8 +10,18 @@
     openaws-vpn-client.url = "github:jonathanxD/openaws-vpn-client";
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, openaws-vpn-client, ...
-    }@inputs: {
+  outputs =
+    { self, nixpkgs, home-manager, catppuccin, openaws-vpn-client, ... }@inputs:
+    let
+      home-config = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "backup";
+        home-manager.users.tebro = {
+          imports = [ ./home catppuccin.homeModules.catppuccin ];
+        };
+      };
+    in {
       nixosConfigurations.nixosvm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ catppuccin.nixosModules.catppuccin ./hosts/nixosvm.nix ];
@@ -23,14 +33,7 @@
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           ./hosts/hornet.nix
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.tebro = {
-              imports = [ ./home catppuccin.homeModules.catppuccin ];
-            };
-          }
+          home-config
         ];
         specialArgs = { inherit inputs; };
       };
@@ -40,15 +43,7 @@
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           ./hosts/raptor.nix
-
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.tebro = {
-              imports = [ ./home catppuccin.homeModules.catppuccin ];
-            };
-          }
+          home-config
         ];
         specialArgs = { inherit inputs; };
       };
