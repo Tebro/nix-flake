@@ -34,6 +34,8 @@
     gnumake
 		gcc
 		gdb
+		rustc
+		cargo
 		xfce.thunar
 		playerctl
 		tldr
