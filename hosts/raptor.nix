@@ -10,6 +10,11 @@
     ./raptor-hardware-configuration.nix
     ../common.nix
   ];
+  swapDevices = [{
+    device = "/.swapfile";
+    size = 8*1024;
+  }];
+
   networking.hostName = "raptor"; # Define your hostname.
 
   services.xserver.videoDrivers = ["amdgpu"];
