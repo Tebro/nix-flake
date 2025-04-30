@@ -9,7 +9,7 @@
 
       modules-left = ["hyprland/workspaces"];
       modules-center = ["clock"];
-      modules-right = ["cpu" "memory" "backlight" "pulseaudio" "battery" "tray"];
+      modules-right = ["hyprland/language" "cpu" "memory" "backlight" "pulseaudio" "battery" "tray"];
 
       clock = {
         tooltip = "true";
@@ -23,6 +23,10 @@
         active-only = false;
         disable-scroll = false;
       };
+			"hyprland/language" = {
+				"format-fi" = "fi";
+				"format-en" = "us";
+			};
       cpu = {
         format = "CPU {usage}%";
         interval = 5;
@@ -47,7 +51,7 @@
       };
     };
     style = ''
-      #cpu, #memory, #pulseaudio, #backlight, #tray, #battery {
+      #cpu, #memory, #pulseaudio, #backlight, #tray, #battery, #language {
         margin-right: 10px;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -55,8 +59,9 @@
         background: rgba(10, 10, 10, 0.3);
         padding: 5px;
       }
-
-
+			#language {
+				min-width: 25px;
+			}
     '';
   };
 }
