@@ -173,8 +173,9 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "$mainMod, M, togglespecialworkspace, magic"
+        "$mainMod SHIFT, M, movetoworkspace, special:magic"
+				"$mainMod SHIFT, S, exec, hyprshot -m region --clipboard-only"
       ];
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = [

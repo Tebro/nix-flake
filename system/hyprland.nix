@@ -20,6 +20,7 @@
     brightnessctl
     xdg-utils
     xdg-user-dirs
+    hyprshot
   ];
 
   xdg.portal.enable = true;
