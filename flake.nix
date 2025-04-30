@@ -8,10 +8,12 @@
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
     openaws-vpn-client.url = "github:jonathanxD/openaws-vpn-client";
+		#nova-chatmix.url = "path:/home/tebro/code/nova-chatmix-linux";
+		nova-chatmix.url = "github:Tebro/nova-chatmix-linux?ref=feat/nix-flake";
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, catppuccin, openaws-vpn-client, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, openaws-vpn-client
+    , nova-chatmix, ... }@inputs:
     let
       home-config = {
         home-manager.useGlobalPkgs = true;
@@ -44,6 +46,8 @@
           home-manager.nixosModules.home-manager
           ./hosts/raptor.nix
           home-config
+					nova-chatmix.nixosModule
+          { services.nova-chatmix.enable = true; }
         ];
         specialArgs = { inherit inputs; };
       };
