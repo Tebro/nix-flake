@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{ config, pkgs, lib, ... }: {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -23,11 +18,12 @@
     networkmanagerapplet
     nwg-displays
     brightnessctl
+    xdg-utils
     xdg-user-dirs
   ];
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
