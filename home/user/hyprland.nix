@@ -1,5 +1,5 @@
 {
-  imports = [./waybar.nix];
+  imports = [ ./waybar.nix ];
   programs.rofi.enable = true;
   services.dunst.enable = true;
   catppuccin = {
@@ -9,6 +9,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
 
     settings = {
       monitor = ",preferred,auto,1";
@@ -17,15 +18,9 @@
       "$fileManager" = "thunar";
       "$menu" = "rofi -show drun -show-icons";
 
-      exec-once = [
-        "nm-applet"
-        "waybar"
-      ];
+      exec-once = [ "nm-applet" "waybar" ];
 
-      env = [
-        "XCURSOR_SIZE,16"
-        "HYPRCURSOR_SIZE,16"
-      ];
+      env = [ "XCURSOR_SIZE,16" "HYPRCURSOR_SIZE,16" ];
 
       general = {
         gaps_in = 5;
@@ -103,9 +98,7 @@
         pseudotile = true;
         preserve_split = true;
       };
-      master = {
-        new_status = "master";
-      };
+      master = { new_status = "master"; };
       misc = {
         force_default_wallpaper = -1;
         disable_hyprland_logo = false;
@@ -122,13 +115,9 @@
 
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
 
-        touchpad = {
-          natural_scroll = false;
-        };
+        touchpad = { natural_scroll = false; };
       };
-      gestures = {
-        workspace_swipe = false;
-      };
+      gestures = { workspace_swipe = false; };
       device = {
         name = "epic-mouse-v1";
         sensitivity = -0.5;
@@ -175,7 +164,7 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
         "$mainMod, M, togglespecialworkspace, magic"
         "$mainMod SHIFT, M, movetoworkspace, special:magic"
-				"$mainMod SHIFT, S, exec, hyprshot -m region --clipboard-only"
+        "$mainMod SHIFT, S, exec, hyprshot -m region --clipboard-only"
       ];
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = [

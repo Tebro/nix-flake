@@ -46,9 +46,9 @@
   ];
 
   services.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "hyprland-uwsm";
   services.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
 
   environment.variables.EDITOR = "nvim";
   catppuccin.flavor = "mocha";

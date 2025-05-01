@@ -62,6 +62,14 @@
 			#language {
 				min-width: 25px;
 			}
+
+			#workspaces {
+				padding: 1px;
+			}
+
+			#workspaces button.active {
+				font-weight: bold;
+			}
     '';
   };
 }
