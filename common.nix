@@ -35,7 +35,6 @@
     xfce.thunar
     playerctl
     tldr
-    discord
     pavucontrol
     wireplumber
     slack
