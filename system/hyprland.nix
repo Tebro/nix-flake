@@ -3,10 +3,10 @@
     enable = true;
     xwayland.enable = true;
 
-		withUWSM = true;
+    withUWSM = true;
   };
 
-	programs.uwsm.enable = true;
+  programs.uwsm.enable = true;
 
   programs.nm-applet.enable = true;
 
@@ -25,10 +25,8 @@
     xdg-utils
     xdg-user-dirs
     hyprshot
+    xdg-desktop-portal-gtk
   ];
-
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
