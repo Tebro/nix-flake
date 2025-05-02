@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [ ./waybar.nix ];
   programs.rofi.enable = true;
   services.dunst.enable = true;
@@ -9,6 +9,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
+    plugins = [ pkgs.hyprlandPlugins.hy3];
     systemd.enable = false;
 
     settings = {
@@ -35,7 +36,7 @@
 
         allow_tearing = false;
 
-        layout = "dwindle";
+        layout = "hy3";
       };
 
       decoration = {
@@ -132,16 +133,29 @@
         "$mainMod SHIFT, C, exec, hyprctl reload config-only"
         "$mainMod, F, fullscreen, 1"
         "$mainMod SHIFT, F, fullscreen, 0"
-        "$mainMod, V, togglefloating,"
+
         "$mainMod, D, exec, $menu"
         "$mainMod SHIFT, D, exec, rofi -show run"
-        "$mainMod, P, pseudo," # dwindle
-        "$mainMod, G, togglesplit," # dwindle
+
         "$mainMod SHIFT, P, exec, physlock"
-        "$mainMod, h, movefocus, l"
-        "$mainMod, l, movefocus, r"
-        "$mainMod, k, movefocus, u"
-        "$mainMod, j, movefocus, d"
+
+				"$mainMod, g, hy3:makegroup, h"
+				"$mainMod, v, hy3:makegroup, v"
+				"$mainMod, w, hy3:makegroup, tab"
+
+				"$mainMod, a, hy3:changefocus, raise"
+				"$mainMod+SHIFT, a, hy3:changefocus, lower"
+
+        "$mainMod, h, hy3:movefocus, l"
+        "$mainMod, l, hy3:movefocus, r"
+        "$mainMod, k, hy3:movefocus, u"
+        "$mainMod, j, hy3:movefocus, d"
+
+        "$mainMod SHIFT, h, hy3:movewindow, l"
+        "$mainMod SHIFT, l, hy3:movewindow, r"
+        "$mainMod SHIFT, k, hy3:movewindow, u"
+        "$mainMod SHIFT, j, hy3:movewindow, d"
+
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -152,6 +166,7 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
+
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -162,8 +177,8 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod, M, togglespecialworkspace, magic"
-        "$mainMod SHIFT, M, movetoworkspace, special:magic"
+
+
         "$mainMod SHIFT, S, exec, hyprshot -m region --clipboard-only"
       ];
       # Move/resize windows with mainMod + LMB/RMB and dragging

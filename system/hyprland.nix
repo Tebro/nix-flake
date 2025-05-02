@@ -26,6 +26,7 @@
     xdg-user-dirs
     hyprshot
     xdg-desktop-portal-gtk
+    hyprlandPlugins.hy3
   ];
 
   fonts.fontDir.enable = true;
