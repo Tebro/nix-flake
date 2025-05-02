@@ -78,6 +78,7 @@
         margin-top: 5px;
         margin-bottom: 5px;
         border: 2px solid rgba(0, 0, 0, 0.3);
+				border-radius: 5px;
         background: rgba(10, 10, 10, 0.3);
         padding: 5px;
       }
