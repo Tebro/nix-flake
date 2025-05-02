@@ -5,5 +5,6 @@
     ./hyprland.nix
     ./shell.nix
 		./syncthing.nix
+		./pipewire.nix
   ];
 }

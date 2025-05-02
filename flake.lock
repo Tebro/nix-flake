@@ -157,11 +157,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1746008230,
-        "narHash": "sha256-8Ebf6x6E81j1JJErugmt71auVaEgAfOxDpZZZwuvVuI=",
+        "lastModified": 1746170925,
+        "narHash": "sha256-7awA2ixlhbArMtZvz9d89EV+rT/ocXQdbq1pkphiCOM=",
         "owner": "Tebro",
         "repo": "nova-chatmix-linux",
-        "rev": "d80f6e977bc94b56539df7208eeafe57bbdf2580",
+        "rev": "a52414a4a36cd8382ff935c76d7704750f7db93e",
         "type": "github"
       },
       "original": {
