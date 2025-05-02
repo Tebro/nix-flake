@@ -26,8 +26,13 @@
     xdg-user-dirs
     hyprshot
     xdg-desktop-portal-gtk
+    hyprpolkitagent
     hyprlandPlugins.hy3
   ];
+
+  systemd.packages = [ pkgs.hyprpolkitagent ];
+  systemd.user.services.hyprpolkitagent.wantedBy =
+    [ "graphical-session.target" ];
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
