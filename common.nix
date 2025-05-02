@@ -28,6 +28,7 @@
     neovim
     wget
     gnumake
+    jq
     gcc
     gdb
     rustc
