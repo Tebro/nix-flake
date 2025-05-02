@@ -2,8 +2,10 @@
   imports = [ ./waybar.nix ];
   programs.rofi.enable = true;
   services.dunst.enable = true;
+	programs.hyprlock.enable = true;
   catppuccin = {
     hyprland.enable = true;
+		hyprlock.enable = true;
     rofi.enable = true;
     dunst.enable = true;
   };
@@ -137,7 +139,7 @@
         "$mainMod, D, exec, $menu"
         "$mainMod SHIFT, D, exec, rofi -show run"
 
-        "$mainMod SHIFT, P, exec, physlock"
+        "$mainMod SHIFT, P, exec, hyprlock"
 
 				"$mainMod, g, hy3:makegroup, h"
 				"$mainMod, v, hy3:makegroup, v"

@@ -10,13 +10,14 @@
 
   programs.nm-applet.enable = true;
 
+  programs.hyprlock.enable = true;
+
   environment.systemPackages = with pkgs; [
     waybar
     rofi-wayland
     dunst
     swww
     kitty
-    physlock
     ghostty
     wl-clipboard
     networkmanagerapplet
@@ -41,8 +42,4 @@
     liberation_ttf
   ];
 
-  services.physlock = {
-    enable = true;
-    allowAnyUser = true;
-  };
 }
