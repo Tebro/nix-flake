@@ -16,7 +16,19 @@
   programs.ghostty.enable = true;
   catppuccin.ghostty.enable = true;
 
-  gtk.enable = true;
+  gtk = {
+    enable = true;
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
   catppuccin.gtk.enable = true;
 
   programs.bat.enable = true;
