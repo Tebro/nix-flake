@@ -146,6 +146,10 @@
 				"$mainMod, a, hy3:changefocus, raise"
 				"$mainMod+SHIFT, a, hy3:changefocus, lower"
 
+				"$mainMod, n, exec, dunstctl history-pop"
+				"$mainMod SHIFT, n, exec, dunstctl close-all"
+				"$mainMod SHIFT CTRL, n, exec, dunstctl set-paused toggle"
+
         "$mainMod, h, hy3:movefocus, l"
         "$mainMod, l, hy3:movefocus, r"
         "$mainMod, k, hy3:movefocus, u"
