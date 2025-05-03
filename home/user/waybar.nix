@@ -17,6 +17,7 @@
         "pulseaudio"
         "battery"
         "tray"
+        "idle_inhibitor"
       ];
 
       clock = {
@@ -37,28 +38,29 @@
         disable-scroll = false;
       };
       "hyprland/language" = {
-        "format-fi" = "fi";
-        "format-en" = "us";
+        "format-fi" = "🇫🇮";
+        "format-en" = "🇺🇸";
       };
       cpu = {
-        format = "CPU {usage}%";
+
+        format = "🏎️ ⚡ {usage}%";
         interval = 5;
       };
       memory = {
-        format = "RAM {percentage}%";
+        format = "📈 💾 📉 {percentage}%";
         interval = 5;
       };
       backlight = {
-        format = "Light {percent}%";
+        format = "💡 {percent}%";
         interval = 1;
         scroll-step = 5;
       };
       battery = {
-        format = "Battery {capacity}%";
+        format = "🔋 {capacity}%";
         interval = 5;
       };
       pulseaudio = {
-        format = "Sound {volume}%";
+        format = "🔊 {volume}%";
         scroll-step = 5;
         on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
       };
@@ -68,31 +70,40 @@
         restart-interval = 1;
         format = " {} ";
       };
+      idle_inhibitor = {
+        format = "{icon}";
+        format-icons = {
+          activated = " ";
+          deactivated = " ";
+        };
+        # Minutes until automatic reset
+        timeout = 60.5;
+      };
     };
     style = ''
-      * {
-      	font-family: "Fira Code";
-      }
-      #cpu, #memory, #pulseaudio, #backlight, #tray, #battery, #language, #custom-dunst {
-        margin-right: 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        border: 2px solid rgba(0, 0, 0, 0.3);
-				border-radius: 5px;
-        background: rgba(10, 10, 10, 0.3);
-        padding: 5px;
-      }
-      #language {
-      	min-width: 25px;
-      }
+      			* {
+            	font-family: "Fira Code";
+            }
+            #cpu, #memory, #pulseaudio, #backlight, #tray, #battery, #language, #custom-dunst, #idle_inhibitor {
+              margin-right: 10px;
+              margin-top: 5px;
+              margin-bottom: 5px;
+              border: 2px solid rgba(0, 0, 0, 0.3);
+      				border-radius: 5px;
+              background: rgba(10, 10, 10, 0.3);
+              padding: 5px;
+            }
+            #language, #idle_inhibitor {
+            	min-width: 25px;
+            }
 
-      #workspaces {
-      	padding: 1px;
-      }
+            #workspaces {
+            	padding: 1px;
+            }
 
-      #workspaces button.active {
-      	font-weight: bold;
-      }
+            #workspaces button.active {
+            	font-weight: bold;
+            }
     '';
   };
 }
