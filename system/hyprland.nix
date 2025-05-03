@@ -42,4 +42,6 @@
     liberation_ttf
   ];
 
+  security.pam.services.hyprlock.enable = true;
+
 }

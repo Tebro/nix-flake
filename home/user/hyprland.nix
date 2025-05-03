@@ -2,16 +2,43 @@
   imports = [ ./waybar.nix ];
   programs.rofi.enable = true;
   services.dunst.enable = true;
-	programs.hyprlock.enable = true;
+  programs.hyprlock.enable = true;
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        #ignore_dbus_inhibit = false;
+      };
+
+      listener = [
+        {
+          timeout = 120;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 150;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 300;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
   catppuccin = {
     hyprland.enable = true;
-		hyprlock.enable = true;
+    hyprlock.enable = true;
     rofi.enable = true;
     dunst.enable = true;
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ pkgs.hyprlandPlugins.hy3];
+    plugins = [ pkgs.hyprlandPlugins.hy3 ];
     systemd.enable = false;
 
     settings = {
@@ -139,18 +166,18 @@
         "$mainMod, D, exec, $menu"
         "$mainMod SHIFT, D, exec, rofi -show run"
 
-        "$mainMod SHIFT, P, exec, hyprlock"
+        "$mainMod SHIFT, P, exec, loginctl lock-session"
 
-				"$mainMod, g, hy3:makegroup, h"
-				"$mainMod, v, hy3:makegroup, v"
-				"$mainMod, w, hy3:makegroup, tab"
+        "$mainMod, g, hy3:makegroup, h"
+        "$mainMod, v, hy3:makegroup, v"
+        "$mainMod, w, hy3:makegroup, tab"
 
-				"$mainMod, a, hy3:changefocus, raise"
-				"$mainMod+SHIFT, a, hy3:changefocus, lower"
+        "$mainMod, a, hy3:changefocus, raise"
+        "$mainMod+SHIFT, a, hy3:changefocus, lower"
 
-				"$mainMod, n, exec, dunstctl history-pop"
-				"$mainMod SHIFT, n, exec, dunstctl close-all"
-				"$mainMod SHIFT CTRL, n, exec, dunstctl set-paused toggle"
+        "$mainMod, n, exec, dunstctl history-pop"
+        "$mainMod SHIFT, n, exec, dunstctl close-all"
+        "$mainMod SHIFT CTRL, n, exec, dunstctl set-paused toggle"
 
         "$mainMod, h, hy3:movefocus, l"
         "$mainMod, l, hy3:movefocus, r"
@@ -183,7 +210,6 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-
 
         "$mainMod SHIFT, S, exec, hyprshot -m region --clipboard-only"
       ];
