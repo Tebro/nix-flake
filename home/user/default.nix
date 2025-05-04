@@ -7,5 +7,6 @@
     ./shell.nix
 		./syncthing.nix
 		./pipewire.nix
+    ./nvf.nix
   ];
 }
