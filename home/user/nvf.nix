@@ -240,6 +240,17 @@
             key = "fd";
             action = "<C-\\><C-n>";
           }
+          # Codecompanion
+          {
+            mode = "n";
+            key = "<C-a>";
+            action = ":CodeCompanionActions<cr>";
+          }
+          {
+            mode = "n";
+            key = "<leader>cc";
+            action = ":CodeCompanionChat<cr>";
+          }
         ];
       };
     };
