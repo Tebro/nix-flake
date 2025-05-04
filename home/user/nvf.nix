@@ -49,7 +49,14 @@
           };
         };
 
-        autocomplete.nvim-cmp = {enable = true;};
+        autocomplete.nvim-cmp = {
+          enable = true;
+          mappings = {
+            confirm = "<C-y>";
+            next = "<C-n>";
+            previous = "<C-p>";
+          };
+        };
 
         telescope = {enable = true;};
 
