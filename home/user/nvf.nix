@@ -156,6 +156,8 @@
 
         treesitter = {enable = true;};
 
+        binds.whichKey.enable = true;
+
         keymaps = [
           # System clipboard
           {
@@ -189,8 +191,7 @@
           {
             mode = "n";
             key = "<leader>w";
-            action = "vim.cmd.update";
-            lua = true;
+            action = ":update<CR>";
           }
           # Oil
           {
