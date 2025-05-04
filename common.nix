@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./system/boot.nix
     ./system/users.nix
@@ -43,6 +48,8 @@
     winbox4
     lua-language-server
     inputs.openaws-vpn-client.defaultPackage.x86_64-linux
+    rbw
+    rofi-rbw
   ];
 
   services.displayManager.sddm.enable = true;
