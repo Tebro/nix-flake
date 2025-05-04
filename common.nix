@@ -49,7 +49,8 @@
     lua-language-server
     inputs.openaws-vpn-client.defaultPackage.x86_64-linux
     rbw
-    rofi-rbw
+    rofi-rbw-wayland
+    pinentry-rofi
   ];
 
   services.displayManager.sddm.enable = true;

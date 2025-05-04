@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ./waybar.nix ];
+{pkgs, ...}: {
+  imports = [./waybar.nix];
   programs.rofi.enable = true;
   services.dunst.enable = true;
   programs.hyprlock.enable = true;
@@ -38,7 +38,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ pkgs.hyprlandPlugins.hy3 ];
+    plugins = [pkgs.hyprlandPlugins.hy3];
     systemd.enable = false;
 
     settings = {
@@ -46,11 +46,10 @@
 
       "$terminal" = "ghostty";
       "$fileManager" = "thunar";
-      "$menu" = "rofi -show drun -show-icons";
 
-      exec-once = [ "nm-applet" "waybar" ];
+      exec-once = ["nm-applet" "waybar"];
 
-      env = [ "XCURSOR_SIZE,16" "HYPRCURSOR_SIZE,16" ];
+      env = ["XCURSOR_SIZE,16" "HYPRCURSOR_SIZE,16"];
 
       general = {
         gaps_in = 5;
@@ -128,7 +127,7 @@
         pseudotile = true;
         preserve_split = true;
       };
-      master = { new_status = "master"; };
+      master = {new_status = "master";};
       misc = {
         force_default_wallpaper = -1;
         disable_hyprland_logo = false;
@@ -145,9 +144,9 @@
 
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
 
-        touchpad = { natural_scroll = false; };
+        touchpad = {natural_scroll = false;};
       };
-      gestures = { workspace_swipe = false; };
+      gestures = {workspace_swipe = false;};
       device = {
         name = "epic-mouse-v1";
         sensitivity = -0.5;
@@ -163,8 +162,9 @@
         "$mainMod, F, fullscreen, 1"
         "$mainMod SHIFT, F, fullscreen, 0"
 
-        "$mainMod, D, exec, $menu"
+        "$mainMod, D, exec, rofi -show drun -show-icons"
         "$mainMod SHIFT, D, exec, rofi -show run"
+        "$mainMod, S, exec, rofi-rbw"
 
         "$mainMod SHIFT, P, exec, loginctl lock-session"
 
