@@ -1,14 +1,20 @@
-{ config, pkgs, lib, inputs, ... }: {
-  imports = [ ./user ];
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [./user];
 
   home.username = "tebro";
   home.homeDirectory = "/home/tebro";
   home.stateVersion = "24.11";
-  home.packages = with pkgs; [ liberation_ttf nodejs_20 ];
+  home.packages = with pkgs; [liberation_ttf nodejs_20];
 
   xdg.enable = true;
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
@@ -34,7 +40,7 @@
   programs.bat.enable = true;
   programs.git.enable = true;
   programs.neovide.enable = true;
-  programs.neovide.settings = { };
+  programs.neovide.settings = {};
   programs.btop.enable = true;
   programs.ripgrep.enable = true;
   programs.tmux.enable = true;
