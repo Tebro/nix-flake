@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -11,11 +11,11 @@
           name = "catppuccin";
         };
 
-        visuals = { nvim-web-devicons.enable = true; };
+        visuals = {nvim-web-devicons.enable = true;};
 
-        statusline.lualine = { enable = true; };
+        statusline.lualine = {enable = true;};
 
-        globals = { mapLeader = "space"; };
+        globals = {mapLeader = "space";};
 
         options = {
           tabstop = 2;
@@ -31,7 +31,7 @@
           relativenumber = true;
         };
 
-        mini = { icons.enable = true; };
+        mini = {icons.enable = true;};
 
         diagnostics = {
           config.virtual_text = true;
@@ -49,9 +49,9 @@
           };
         };
 
-        autocomplete.nvim-cmp = { enable = true; };
+        autocomplete.nvim-cmp = {enable = true;};
 
-        telescope = { enable = true; };
+        telescope = {enable = true;};
 
         assistant = {
           codecompanion-nvim = {
@@ -61,19 +61,19 @@
                 inline.adapter = "copilot";
                 chat.adapter = "copilot";
               };
-              adapters = ''
-                                {
-                									copilot = function()
-                										return require("codecompanion.adapters").extend("copilot", {
-                                						schema = {
-                                							model = {
-                                								default = "claude-3.7-sonnet"
-                                							}
-                                						}
-                                					})
-                                				end
-                                			}
-                                							'';
+              adapters = lib.mkLuaInline ''
+                {
+                 copilot = function()
+                  return require("codecompanion.adapters").extend("copilot", {
+                    schema = {
+                    model = {
+                    default = "claude-3.7-sonnet"
+                    }
+                    }
+                    })
+                 end
+                }
+              '';
             };
           };
           copilot = {
@@ -117,7 +117,7 @@
             enable = true;
             lsp.enable = true;
             treesitter.enable = true;
-            extensions = { render-markdown-nvim.enable = true; };
+            extensions = {render-markdown-nvim.enable = true;};
           };
         };
 
@@ -126,8 +126,7 @@
             enable = true;
             setupOpts = {
               win_options = {
-                winbar =
-                  "%#@attribute.builtin#%{substitute(v:lua.require('oil').get_current_dir(), '^' . $HOME, '~', '')}";
+                winbar = "%#@attribute.builtin#%{substitute(v:lua.require('oil').get_current_dir(), '^' . $HOME, '~', '')}";
               };
             };
           };
@@ -144,17 +143,17 @@
           };
         };
 
-        treesitter = { enable = true; };
+        treesitter = {enable = true;};
 
         keymaps = [
           # System clipboard
           {
-            mode = [ "n" "v" ];
+            mode = ["n" "v"];
             key = "<leader>y";
             action = ''"+y'';
           }
           {
-            mode = [ "n" "v" ];
+            mode = ["n" "v"];
             key = "<leader>p";
             action = ''"+p'';
           }
@@ -225,7 +224,7 @@
           }
           # fd esc
           {
-            mode = [ "i" "v" ];
+            mode = ["i" "v"];
             key = "fd";
             action = "<Esc>";
           }
