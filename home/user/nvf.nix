@@ -31,7 +31,10 @@
           relativenumber = true;
         };
 
-        mini = {icons.enable = true;};
+        mini = {
+          diff.enable = true;
+          icons.enable = true;
+        };
 
         diagnostics = {
           config.virtual_text = true;
@@ -64,6 +67,7 @@
           codecompanion-nvim = {
             enable = true;
             setupOpts = {
+              display.diff.provider = "mini_diff";
               strategies = {
                 inline.adapter = "copilot";
                 chat.adapter = "copilot";
