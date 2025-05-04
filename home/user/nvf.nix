@@ -125,6 +125,12 @@
             enable = true;
             lsp.enable = true;
           };
+          go = {
+            enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+            format.enable = true;
+          };
           markdown = {
             enable = true;
             lsp.enable = true;
