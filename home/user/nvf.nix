@@ -73,8 +73,9 @@
           };
         };
 
-        autocomplete.nvim-cmp = {
+        autocomplete.blink-cmp = {
           enable = true;
+          friendly-snippets.enable = true;
           mappings = {
             confirm = "<C-y>";
             next = "<C-n>";
