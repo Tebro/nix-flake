@@ -214,6 +214,18 @@
             key = "<leader>p";
             action = ''"+p'';
           }
+          {
+            mode = "n";
+            key = "<leader>Q";
+            action = "vim.diagnostic.open_float";
+            lua = true;
+          }
+          {
+            mode = "n";
+            key = "<leader>q";
+            action = "vim.diagnostic.setqflist";
+            lua = true;
+          }
           # Move lines
           {
             mode = "v";
