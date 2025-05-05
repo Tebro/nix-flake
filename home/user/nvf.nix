@@ -11,6 +11,10 @@
           name = "catppuccin";
         };
 
+        ui = {
+          noice.enable = true;
+        };
+
         visuals = {nvim-web-devicons.enable = true;};
 
         statusline.lualine = {enable = true;};
