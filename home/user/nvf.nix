@@ -1,9 +1,26 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.nvf = {
     enable = true;
     settings = {
       vim = {
         vimAlias = true;
+
+        startPlugins = [pkgs.vimPlugins.goto-preview];
+
+        extraPlugins = {
+          goto-preview = {
+            package = pkgs.vimPlugins.goto-preview;
+            setup = ''
+              require('goto-preview').setup {
+                default_mappings = true;
+              }
+            '';
+          };
+        };
 
         theme = {
           enable = true;
