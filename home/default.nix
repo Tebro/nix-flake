@@ -45,7 +45,10 @@
   programs.git.enable = true;
   programs.neovide.enable = true;
   programs.neovide.settings = {};
+
+  # customized for raptor in raptor.nix
   programs.btop.enable = true;
+
   programs.ripgrep.enable = true;
   programs.tmux.enable = true;
 }

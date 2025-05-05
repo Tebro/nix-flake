@@ -28,16 +28,18 @@
     nvf,
     ...
   } @ inputs: let
-    home-config = {
+    home-config = {extraImports ? [], ...}: {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "backup";
       home-manager.users.tebro = {
-        imports = [
-          ./home
-          catppuccin.homeModules.catppuccin
-          nvf.homeManagerModules.default
-        ];
+        imports =
+          [
+            ./home
+            catppuccin.homeModules.catppuccin
+            nvf.homeManagerModules.default
+          ]
+          ++ extraImports;
       };
     };
   in {
@@ -52,7 +54,7 @@
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         ./hosts/hornet.nix
-        home-config
+        (home-config {})
       ];
       specialArgs = {inherit inputs;};
     };
@@ -62,7 +64,7 @@
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         ./hosts/raptor.nix
-        home-config
+        (home-config {extraImports = [./home/raptor.nix];})
         nova-chatmix.nixosModule
         {services.nova-chatmix.enable = true;}
       ];
