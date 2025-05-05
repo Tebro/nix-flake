@@ -48,6 +48,7 @@
     winbox4
     lua-language-server
     inputs.openaws-vpn-client.defaultPackage.x86_64-linux
+    inputs.zen-browser.packages.x86_64-linux.default
     rbw
     rofi-rbw-wayland
     pinentry-rofi
