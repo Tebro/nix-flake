@@ -34,7 +34,26 @@
 
         visuals = {nvim-web-devicons.enable = true;};
 
-        statusline.lualine = {enable = true;};
+        statusline.lualine = {
+          enable = true;
+          setupOpts = let
+            winbar_cfg = {
+              lualine_a = {};
+              lualine_b = {};
+              lualine_c = lib.mkLuaInline ''
+                { {'filename', path = 1, file_status = true, shorting_target = 0, cond = function ()
+                  						return vim.bo.buftype ~= 'terminal'
+                  	end} }
+              '';
+              lualine_x = {};
+              lualine_y = {};
+              lualine_z = {};
+            };
+          in {
+            winbar = winbar_cfg;
+            inactive_winbar = winbar_cfg;
+          };
+        };
 
         globals = {mapLeader = "space";};
 
