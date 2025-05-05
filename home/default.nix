@@ -18,6 +18,10 @@
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
+  # TODO: consider moving away from the global enable
+
+  # This fixes an issue with mako extraConfig being deprecated
+  catppuccin.mako.enable = false;
 
   programs.ghostty.enable = true;
   catppuccin.ghostty.enable = true;
