@@ -38,7 +38,6 @@
     gdb
     rustc
     cargo
-    xfce.thunar
     playerctl
     tldr
     pavucontrol
@@ -63,4 +62,9 @@
   environment.variables.EDITOR = "nvim";
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
+
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true;
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
 }

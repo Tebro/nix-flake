@@ -40,6 +40,7 @@
     };
   };
   catppuccin.gtk.enable = true;
+  catppuccin.gtk.icon.enable = true;
 
   programs.bat.enable = true;
   programs.git.enable = true;
