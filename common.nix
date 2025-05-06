@@ -52,6 +52,7 @@
     rbw
     rofi-rbw-wayland
     pinentry-rofi
+    evince
   ];
 
   services.displayManager.sddm.enable = true;
