@@ -67,4 +67,7 @@
   programs.xfconf.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+
+  # sudo nix-channel update
+  programs.command-not-found.enable = true;
 }
