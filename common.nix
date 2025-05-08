@@ -4,6 +4,7 @@
   inputs,
   ...
 }: {
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   imports = [
     ./system/boot.nix
     ./system/users.nix

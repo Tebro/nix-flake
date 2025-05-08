@@ -149,6 +149,7 @@
           nix = {
             enable = true;
             lsp.enable = true;
+            lsp.server = "nixd";
             treesitter.enable = true;
             format.enable = true;
           };
