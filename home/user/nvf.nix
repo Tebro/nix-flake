@@ -74,7 +74,14 @@
 
         diagnostics = {
           config.virtual_text = true;
-          nvim-lint.enable = true;
+          nvim-lint = {
+            enable = true;
+            lint_function = lib.mkLuaInline ''
+              function(buf)
+                require("lint").try_lint()
+              end
+            '';
+          };
         };
 
         lsp = {
@@ -158,6 +165,9 @@
             lsp.enable = true;
             treesitter.enable = true;
             format.enable = true;
+            extraDiagnostics = {
+              enable = true;
+            };
           };
           tailwind = {
             enable = true;
