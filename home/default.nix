@@ -9,6 +9,9 @@
 
   home.username = "tebro";
   home.homeDirectory = "/home/tebro";
+  home.sessionVariables = {
+    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+  };
   home.stateVersion = "24.11";
   home.packages = with pkgs; [liberation_ttf nodejs_20];
 
@@ -52,4 +55,7 @@
 
   programs.ripgrep.enable = true;
   programs.tmux.enable = true;
+
+  programs.ssh.enable = true;
+  services.ssh-agent.enable = true;
 }
