@@ -1,16 +1,23 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, ... }: {
-  imports = [ ./raptor-hardware-configuration.nix ../common.nix ];
-  swapDevices = [{
-    device = "/.swapfile";
-    size = 8 * 1024;
-  }];
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [./raptor-hardware-configuration.nix ../common.nix];
+  swapDevices = [
+    {
+      device = "/.swapfile";
+      size = 8 * 1024;
+    }
+  ];
 
   networking.hostName = "raptor"; # Define your hostname.
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   # May need to figure out protopedal for steering wheel
   # https://gitlab.com/openirseny/protopedal
