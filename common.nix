@@ -39,6 +39,7 @@
     gdb
     rustc
     cargo
+    go
     playerctl
     tldr
     pavucontrol
