@@ -61,6 +61,9 @@
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.package = pkgs.kdePackages.sddm;
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+
   environment.variables.EDITOR = "nvim";
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
