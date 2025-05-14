@@ -7,7 +7,7 @@
   inputs,
   ...
 }: {
-  imports = [./raptor-hardware-configuration.nix ../common.nix];
+  imports = [./raptor-hardware-configuration.nix ../common.nix ../system/sshd.nix];
   swapDevices = [
     {
       device = "/.swapfile";
