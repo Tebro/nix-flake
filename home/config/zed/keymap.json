@@ -1,0 +1,107 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "vim_mode != insert",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space f b": "tab_switcher::ToggleAll",
+      "space f g": "workspace::NewSearch",
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !menu",
+    "bindings": {
+      "space t t": "workspace::ToggleBottomDock",
+      "space t shift-t": [
+        "task::Spawn",
+        {
+          "task_name": "terminal"
+        }
+      ],
+      "space t s": "task::Spawn",
+      "space g s": "git_panel::ToggleFocus",
+      "space g d": "git::Diff",
+      "space g c": "git::Commit",
+      "space g r": "git::Restore",
+      "space g n": "editor::GoToHunk",
+      "space g shift-n": "git::StageAndNext",
+      "space g p": "editor::GoToPreviousHunk",
+      "space w": "workspace::Save",
+      "space l f": "editor::Format",
+      "space c a": "editor::ToggleCodeActions",
+      "space e": "project_panel::ToggleFocus",
+      "space shift-e": "pane::RevealInProjectPanel",
+      "shift-ctrl-k": "editor::ShowSignatureHelp",
+      "space r n": "editor::Rename",
+      "space l": "vim::SelectLargerSyntaxNode",
+      "space h": "vim::SelectSmallerSyntaxNode"
+    }
+  },
+  {
+    "context": "vim_mode == visual || vim_mode == normal",
+    "bindings": {
+      "ctrl-h": "workspace::ToggleLeftDock",
+      "ctrl-j": "workspace::ToggleBottomDock",
+      "ctrl-l": "workspace::ToggleRightDock",
+      "space g shift-a": "git::ToggleStaged",
+      "space g a": "git::StageAndNext",
+      "space g r": "git::Restore",
+      "space g e": "editor::ToggleSelectedDiffHunks",
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "f d": [
+        "workspace::SendKeystrokes",
+        "escape"
+      ],
+      "ctrl-l": "editor::AcceptPartialEditPrediction"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !menu",
+    "bindings": {
+      "f d": [
+        "workspace::SendKeystrokes",
+        "escape"
+      ],
+      "shift-s": [
+        "vim::PushAddSurrounds",
+        {}
+      ],
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+      "space l": "vim::SelectLargerSyntaxNode",
+      "space h": "vim::SelectSmallerSyntaxNode"
+    }
+  },
+  {
+    "context": "Terminal || Dock",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w c": "pane::CloseActiveItem"
+    }
+  },
+  //{
+  //  "context": "Editor && edit_prediction",
+  //  "bindings": {
+  //    "super-l": "editor::AcceptEditPrediction"
+  //  }
+  //},
+  //{
+  //  "context": "Editor && edit_prediction_conflict",
+  //  "bindings": {
+  //    "super-l": "editor::AcceptEditPrediction"
+  //  }
+  //}
+]

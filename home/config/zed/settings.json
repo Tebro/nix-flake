@@ -1,0 +1,130 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  "icon_theme": "Catppuccin Mocha",
+  "git_panel": {
+    "button": true
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "auto_signature_help": false,
+  "agent": {
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "open": true,
+          "terminal": true,
+          "batch_tool": true,
+          "code_symbols": true,
+          "copy_path": false,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "symbol_info": true,
+          "thinking": true,
+          "create_directory": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "postgres-context-server": {
+            "tools": {
+              "query": true,
+              "pg-schema": true
+            }
+          }
+        }
+      }
+    },
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-7-sonnet"
+    },
+    "version": "2",
+    "enable_experimental_live_diffs": true
+  },
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": true
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "vim_mode": true,
+  "vim": {
+    "use_smartcase_find": true
+  },
+  "relative_line_numbers": true,
+  "hard_tabs": false,
+  "formatter": "language_server",
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha"
+  },
+  "preview_tabs": {
+    "enabled": false,
+    "enable_preview_from_file_finder": false,
+    "enable_preview_from_code_navigation": false
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true,
+    "selections_menu": true
+  },
+  "terminal": {
+    "line_height": "comfortable",
+    "toolbar": {
+      "show": false,
+      "breadcrumbs": false
+    }
+  },
+  "autosave": "on_window_change",
+  "languages": {
+    "Go": {
+      "tab_size": 4,
+      "hard_tabs": true,
+      "format": {
+        "provider": "gofmt",
+        "args": [
+          "-s"
+        ]
+      }
+    },
+    "JavaScript": {
+      "tab_size": 2,
+      "formatter": "prettier"
+    },
+    "TypeScript": {
+      "tab_size": 2,
+      "formatter": "prettier"
+    },
+    "CSS": {
+      "tab_size": 2,
+      "formatter": "prettier"
+    }
+  }
+}
