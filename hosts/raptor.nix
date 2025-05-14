@@ -15,6 +15,10 @@
     }
   ];
 
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.amd
+  ];
+
   networking.hostName = "raptor"; # Define your hostname.
 
   services.xserver.videoDrivers = ["amdgpu"];
