@@ -45,11 +45,6 @@
       };
     };
   in {
-    nixosConfigurations.nixosvm = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [catppuccin.nixosModules.catppuccin ./hosts/nixosvm.nix];
-      specialArgs = {inherit inputs;};
-    };
     nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
