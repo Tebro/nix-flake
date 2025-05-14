@@ -54,6 +54,8 @@
       overrideVersion = "0.187.1-pre";
       overrideHash = "sha256-dGVDixRJQcWUeDuzZHY+B7sKnNJzlUXXhVM8W85YrHI=";
     })
+    nixd
+    nil
     rbw
     rofi-rbw-wayland
     pinentry-rofi
