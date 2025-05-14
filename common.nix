@@ -50,6 +50,10 @@
     lua-language-server
     inputs.openaws-vpn-client.defaultPackage.x86_64-linux
     inputs.zen-browser.packages.x86_64-linux.default
+    (inputs.zed-editor.packages.x86_64-linux.zed-editor-bin.override {
+      overrideVersion = "0.187.1-pre";
+      overrideHash = "sha256-dGVDixRJQcWUeDuzZHY+B7sKnNJzlUXXhVM8W85YrHI=";
+    })
     rbw
     rofi-rbw-wayland
     pinentry-rofi
