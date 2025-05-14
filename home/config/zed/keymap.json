@@ -7,7 +7,7 @@
 // from the command palette.
 [
   {
-    "context": "Editor && vim_mode != insert && !menu",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !menu",
     "bindings": {
       "space f f": "file_finder::Toggle",
       "space f b": "tab_switcher::ToggleAll",
