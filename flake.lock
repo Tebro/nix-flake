@@ -460,16 +460,15 @@
         "patched-nixpkgs": "patched-nixpkgs"
       },
       "locked": {
-        "lastModified": 1747245784,
-        "narHash": "sha256-nmVG0itUE7lqyiz6lwLH5cL4oMWuJKDptcFLoToIzv4=",
-        "owner": "Tebro",
+        "lastModified": 1747467107,
+        "narHash": "sha256-IIewGkpjoV6zSJNgxsL7p+wij/Q7RpDAlf0OVggK/ME=",
+        "owner": "HPsaucii",
         "repo": "zed-editor-flake",
-        "rev": "378ba9bc1c683367a3cd924cac24155af4da6936",
+        "rev": "50b08c64d1abed4318b8289ec3f62b64b4f34231",
         "type": "github"
       },
       "original": {
-        "owner": "Tebro",
-        "ref": "preview",
+        "owner": "HPsaucii",
         "repo": "zed-editor-flake",
         "type": "github"
       }

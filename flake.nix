@@ -11,7 +11,7 @@
     openaws-vpn-client.url = "github:jonathanxD/openaws-vpn-client";
     #nova-chatmix.url = "path:/home/tebro/code/nova-chatmix-linux";
     nova-chatmix.url = "github:Tebro/nova-chatmix-linux?ref=feat/nix-flake";
-    zed-editor.url = "github:Tebro/zed-editor-flake/preview";
+    zed-editor.url = "github:HPsaucii/zed-editor-flake";
     zed-editor.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
