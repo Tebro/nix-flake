@@ -133,7 +133,7 @@
           };
           copilot = {
             enable = true;
-            cmp.enable = true;
+            #cmp.enable = true;
           };
         };
 
