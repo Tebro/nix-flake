@@ -62,6 +62,7 @@
     rofi-rbw-wayland
     pinentry-rofi
     evince
+    unzip
   ];
 
   services.displayManager.sddm.enable = true;
