@@ -41,6 +41,8 @@
     rustc
     cargo
     go
+    zig
+    zls
     playerctl
     tldr
     pavucontrol
