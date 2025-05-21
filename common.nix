@@ -54,6 +54,7 @@
     inputs.openaws-vpn-client.defaultPackage.x86_64-linux
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.zed-editor.packages.x86_64-linux.zed-editor-preview-bin
+    package-version-server # used by zed
     bolt-launcher
     nixd
     nil
