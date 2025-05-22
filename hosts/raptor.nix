@@ -17,7 +17,14 @@
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.amd
+    lug-helper
   ];
+
+  # Star citizen requirements
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 16777216;
+    "fs.file-max" = 524288;
+  };
 
   networking.hostName = "raptor"; # Define your hostname.
 
