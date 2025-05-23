@@ -1,6 +1,10 @@
 {
-  programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    tmux.enableShellIntegration = true;
+  };
 
   programs.zsh = {
     enable = true;
