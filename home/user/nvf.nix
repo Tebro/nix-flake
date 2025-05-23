@@ -217,7 +217,6 @@
         treesitter = {enable = true;};
 
         binds.whichKey.enable = true;
-        binds.hardtime-nvim.enable = true;
         notify.nvim-notify.enable = true;
 
         keymaps = [
