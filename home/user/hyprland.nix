@@ -1,6 +1,13 @@
 {pkgs, ...}: {
   imports = [./waybar.nix];
-  programs.rofi.enable = true;
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        terminal = "${pkgs.ghostty}/bin/ghostty -e";
+      };
+    };
+  };
   services.dunst.enable = true;
   programs.hyprlock.enable = true;
   services.hypridle = {
@@ -33,7 +40,7 @@
   catppuccin = {
     hyprland.enable = true;
     hyprlock.enable = true;
-    rofi.enable = true;
+    fuzzel.enable = true;
     dunst.enable = true;
   };
   wayland.windowManager.hyprland = {
@@ -162,9 +169,8 @@
         "$mainMod, F, fullscreen, 1"
         "$mainMod SHIFT, F, fullscreen, 0"
 
-        "$mainMod, D, exec, rofi -show drun -show-icons"
-        "$mainMod SHIFT, D, exec, rofi -show run"
-        "$mainMod, S, exec, rofi-rbw"
+        "$mainMod, D, exec, fuzzel"
+        "$mainMod SHIFT, D, exec, fuzzel --list-executables-in-path"
 
         "$mainMod SHIFT, P, exec, loginctl lock-session"
 

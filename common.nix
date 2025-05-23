@@ -58,9 +58,6 @@
     bolt-launcher
     nixd
     nil
-    rbw
-    rofi-rbw-wayland
-    pinentry-rofi
     evince
     unzip
   ];

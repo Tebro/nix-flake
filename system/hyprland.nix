@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -14,7 +19,7 @@
 
   environment.systemPackages = with pkgs; [
     waybar
-    rofi-wayland
+    fuzzel
     dunst
     swww
     kitty
@@ -31,9 +36,8 @@
     hyprlandPlugins.hy3
   ];
 
-  systemd.packages = [ pkgs.hyprpolkitagent ];
-  systemd.user.services.hyprpolkitagent.wantedBy =
-    [ "graphical-session.target" ];
+  systemd.packages = [pkgs.hyprpolkitagent];
+  systemd.user.services.hyprpolkitagent.wantedBy = ["graphical-session.target"];
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
@@ -43,5 +47,4 @@
   ];
 
   security.pam.services.hyprlock.enable = true;
-
 }
