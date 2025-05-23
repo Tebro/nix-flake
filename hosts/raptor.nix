@@ -7,7 +7,7 @@
   inputs,
   ...
 }: {
-  imports = [./raptor-hardware-configuration.nix ../common.nix ../system/sshd.nix];
+  imports = [./raptor-hardware-configuration.nix ../common.nix ../system/sshd.nix ../system/star-citizen.nix];
   swapDevices = [
     {
       device = "/.swapfile";
@@ -17,7 +17,6 @@
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.amd
-    lug-helper
   ];
 
   # Star citizen requirements
