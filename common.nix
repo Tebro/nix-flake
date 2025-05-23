@@ -53,7 +53,16 @@
     lua-language-server
     inputs.openaws-vpn-client.defaultPackage.x86_64-linux
     inputs.zen-browser.packages.x86_64-linux.default
-    inputs.zed-editor.packages.x86_64-linux.zed-editor-preview-bin
+    (let
+      version = "0.188.1-pre";
+    in
+      inputs.zed-editor.packages.x86_64-linux.zed-editor-preview-bin.overrideAttrs {
+        inherit version;
+        src = pkgs.fetchurl {
+          url = "https://github.com/zed-industries/zed/releases/download/v${version}/zed-linux-x86_64.tar.gz";
+          sha256 = "sha256-Y+SO31alHUlp0YbH3Dd2HaFU6tRdRmjyIiiRKo77QQU=";
+        };
+      })
     package-version-server # used by zed
     bolt-launcher
     nixd
