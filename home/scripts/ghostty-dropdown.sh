@@ -5,6 +5,7 @@ ACTIVE_WORKSPACE="$(hyprctl activeworkspace -j | jq -r .id)" || echo "hdrop: Err
 VERBOSE=false
 FOCUS=false
 TERM_STATUS=$(pgrep -a $TERM | grep "$CLASS")
+TMUX_SESSION=dropdown
 
 if [[ -n "${TERM_STATUS}" ]]; then
   if [[ -n $(hyprctl clients -j | jq -r ".[] | select(.class==\"$CLASS\" and .workspace.id!=$ACTIVE_WORKSPACE)") ]]; then
@@ -28,6 +29,17 @@ if [[ -n "${TERM_STATUS}" ]]; then
     if $VERBOSE; then echo "hdrop: No running program matches class '$CLASS'." "Currently active classes are '$(hyprctl clients -j | jq -r '.[] | select(.mapped==true) | .class' | sort | tr '\n' ' ')'. Executed '$COMMANDLINE' in case it was not running already."; fi
   fi
 else
-  echo "no running $TERM found, starting..."
-  $TERM --class="$CLASS" -e tmux new-session -A -s dropdown &
+  echo "no matching $TERM found, starting..."
+
+	if ! tmux has-session -t $TMUX_SESSION; then
+		tmux new-session -s $TMUX_SESSION -n flake -d
+		tmux send-keys -t $TMUX_SESSION 'cd ~/flake; nvim' C-m
+
+		tmux new-window -t $TMUX_SESSION -n btop
+		tmux send-keys -t $TMUX_SESSION:1 'btop' C-m
+
+		tmux select-window -t $TMUX_SESSION:0
+	fi
+
+	$TERM --class="$CLASS" -e tmux attach -t $TMUX_SESSION
 fi
