@@ -74,9 +74,5 @@ local function init()
 	})
 
 	require("typescript-tools").setup({})
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = { "*.tsx", "*.ts", "*.js", "*.jsx", "*.json", "*.html", "*.css", "*.scss" },
-		command = "Neoformat prettier"
-	})
 end
 return { init = init }

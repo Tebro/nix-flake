@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-		package = pkgs.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     extraLuaConfig = ''
       require("tvim").init()
     '';
@@ -11,11 +11,13 @@
       nodePackages.prettier
       tree-sitter
       nixd
-			nil
+      nil
       nixfmt-classic
+      nixpkgs-fmt
       nil
       stylua
-			zls
+      statix
+      zls
       lua-language-server
       luajitPackages.luacheck
       bash-language-server
@@ -26,7 +28,7 @@
       (pkgs.vimUtils.buildVimPlugin {
         name = "tvim";
         src = ../config/nvim;
-				#doCheck = false;
+        #doCheck = false;
         dependencies = with pkgs.vimPlugins; [
           catppuccin-nvim
           nvim-web-devicons
@@ -37,9 +39,9 @@
           flash-nvim
           goto-preview
           toggleterm-nvim
-					plenary-nvim
+          plenary-nvim
           telescope-nvim
-					lualine-nvim
+          lualine-nvim
 
           nvim-cmp
           cmp-nvim-lsp
@@ -47,10 +49,10 @@
           cmp-path
           cmp-cmdline
           luasnip
-          neoformat
           vim-surround
           nvim-lspconfig
           nvim-lint
+          conform-nvim
 
           nvim-treesitter
           nvim-treesitter-textobjects
