@@ -21,6 +21,7 @@
       lua-language-server
       luajitPackages.luacheck
       bash-language-server
+      tailwindcss-language-server
       #typescript-language-server
       go
     ];
@@ -63,6 +64,7 @@
           codecompanion-nvim
 
           typescript-tools-nvim
+          tailwind-tools-nvim
           render-markdown-nvim
         ];
       })
