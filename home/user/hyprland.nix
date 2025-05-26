@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  imports = [./waybar.nix];
+{ pkgs, ... }: {
+  imports = [ ./waybar.nix ];
   programs.fuzzel = {
     enable = true;
     settings = {
@@ -45,7 +45,7 @@
   };
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [pkgs.hyprlandPlugins.hy3];
+    plugins = [ pkgs.hyprlandPlugins.hy3 ];
     systemd.enable = false;
 
     settings = {
@@ -54,9 +54,9 @@
       "$terminal" = "ghostty";
       "$fileManager" = "thunar";
 
-      exec-once = ["nm-applet" "waybar"];
+      exec-once = [ "nm-applet" "waybar" ];
 
-      env = ["XCURSOR_SIZE,16" "HYPRCURSOR_SIZE,16"];
+      env = [ "XCURSOR_SIZE,16" "HYPRCURSOR_SIZE,16" ];
 
       general = {
         gaps_in = 5;
@@ -134,7 +134,7 @@
         pseudotile = true;
         preserve_split = true;
       };
-      master = {new_status = "master";};
+      master = { new_status = "master"; };
       misc = {
         force_default_wallpaper = -1;
         disable_hyprland_logo = false;
@@ -151,9 +151,9 @@
 
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
 
-        touchpad = {natural_scroll = false;};
+        touchpad = { natural_scroll = false; };
       };
-      gestures = {workspace_swipe = false;};
+      gestures = { workspace_swipe = false; };
       device = {
         name = "epic-mouse-v1";
         sensitivity = -0.5;
@@ -162,6 +162,7 @@
 
       bind = [
         "$mainMod, Return, exec, $terminal"
+        "$mainMod, M, exec, /home/tebro/.local/bin/ghostty-dropdown"
         "$mainMod SHIFT, Q, killactive,"
         "$mainMod SHIFT, E, exit,"
         "$mainMod, E, exec, $fileManager"
@@ -249,6 +250,13 @@
         "opacity 1.0 override 1.0 override 1.0, class:waybar"
         # Fix some dragging issues with XWayland
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+
+
+        # "Drop down terminal"
+        "float, class:^(org.tebro.tdropmux)$"
+        "monitor current, class:^(org.tebro.tdropmux)$"
+        "size 95% 95%, class:^(org.tebro.tdropmux)$"
+        "move 2.5% 2.5%, class:^(org.tebro.tdropmux)$"
       ];
     };
   };
