@@ -7,7 +7,8 @@
     ./shell.nix
     ./syncthing.nix
     ./pipewire.nix
-    ./nvf.nix
+    #./nvf.nix
+    ./nvim.nix
     ./zed.nix
   ];
 }
