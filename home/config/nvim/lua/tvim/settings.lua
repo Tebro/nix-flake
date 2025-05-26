@@ -33,4 +33,4 @@ local function init()
 	vim.opt.laststatus = 3
 end
 
-return {init = init}
+return { init = init }

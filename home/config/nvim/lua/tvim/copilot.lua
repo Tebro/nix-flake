@@ -1,7 +1,6 @@
 local function init()
-
 	require("copilot").setup({
-		suggestions = { enabled = true}
+		suggestions = { enabled = true }
 	})
 	require("codecompanion").setup({
 		adapters = {
@@ -25,7 +24,6 @@ local function init()
 	vim.keymap.set({ 'n', 'v' }, '<C-a>', '<cmd>CodeCompanionActions<cr>')
 	vim.keymap.set({ 'n', 'v' }, '<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>')
 	vim.keymap.set('v', 'ga', '<cmd>CodeCompanionChat Add<cr>')
-
 end
 
-return {init = init}
+return { init = init }

@@ -14,7 +14,7 @@ local function init()
 	vim.keymap.set('n', '<leader>Y', '"+Y')
 
 	-- Paste from system
-	vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
+	vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
 
 	-- Visual mode move lines
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -44,4 +44,4 @@ local function init()
 	-- Expand 'cc' into 'CodeCompanion' in the command line
 	vim.cmd([[cab cc CodeCompanion]])
 end
-return {init = init}
+return { init = init }

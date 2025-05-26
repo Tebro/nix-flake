@@ -53,11 +53,11 @@ local function init()
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 	local lspconfig = require("lspconfig")
 
-	lspconfig.bashls.setup({capabilities = capabilities})
-	lspconfig.lua_ls.setup({capabilities = capabilities})
-	lspconfig.nixd.setup({capabilities = capabilities})
-	lspconfig.nil_ls.setup({capabilities = capabilities})
-	lspconfig.zls.setup({capabilities = capabilities})
+	lspconfig.bashls.setup({ capabilities = capabilities })
+	lspconfig.lua_ls.setup({ capabilities = capabilities })
+	lspconfig.nixd.setup({ capabilities = capabilities })
+	lspconfig.nil_ls.setup({ capabilities = capabilities })
+	lspconfig.zls.setup({ capabilities = capabilities })
 
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 	vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
@@ -78,6 +78,5 @@ local function init()
 		pattern = { "*.tsx", "*.ts", "*.js", "*.jsx", "*.json", "*.html", "*.css", "*.scss" },
 		command = "Neoformat prettier"
 	})
-
-end 
-return {init = init}
+end
+return { init = init }
