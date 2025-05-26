@@ -1,30 +1,22 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./hornet-hardware-configuration.nix
-    ../common.nix
-  ];
+{ pkgs, ... }: {
+  imports = [ ./hornet-hardware-configuration.nix ../common.nix ];
   networking.hostName = "hornet"; # Define your hostname.
 
-  boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/1f875867-738c-4ae4-ba3f-bf27363fdead";
+  boot.initrd.luks.devices.cryptroot.device =
+    "/dev/disk/by-uuid/1f875867-738c-4ae4-ba3f-bf27363fdead";
 
   powerManagement = {
     enable = true;
     powertop.enable = true;
-	};
+  };
 
-	services.power-profiles-daemon.enable = true;
-	hardware.bluetooth.enable = true;
+  services.power-profiles-daemon.enable = true;
+  hardware.bluetooth.enable = true;
 
-	environment.systemPackages = with pkgs; [
-    powertop
-  ];
+  environment.systemPackages = with pkgs; [ powertop ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

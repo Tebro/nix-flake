@@ -1,6 +1,6 @@
-{pkgs, ...}: {
-  environment.pathsToLink = ["share/zsh"];
-  environment.systemPackages = with pkgs; [grml-zsh-config bat];
+{ pkgs, ... }: {
+  environment.pathsToLink = [ "share/zsh" ];
+  environment.systemPackages = with pkgs; [ grml-zsh-config bat ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;

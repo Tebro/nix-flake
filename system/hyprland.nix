@@ -1,20 +1,18 @@
-{ config
-, pkgs
-, lib
-, ...
-}: {
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+{ pkgs, ... }: {
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
 
-    withUWSM = true;
+      withUWSM = true;
+    };
+
+    uwsm.enable = true;
+
+    nm-applet.enable = true;
+
+    hyprlock.enable = true;
   };
-
-  programs.uwsm.enable = true;
-
-  programs.nm-applet.enable = true;
-
-  programs.hyprlock.enable = true;
 
   environment.systemPackages = with pkgs; [
     waybar
@@ -37,7 +35,8 @@
   ];
 
   systemd.packages = [ pkgs.hyprpolkitagent ];
-  systemd.user.services.hyprpolkitagent.wantedBy = [ "graphical-session.target" ];
+  systemd.user.services.hyprpolkitagent.wantedBy =
+    [ "graphical-session.target" ];
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [

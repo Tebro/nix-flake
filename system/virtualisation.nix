@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   virtualisation = {
     containers.enable = true;
     podman = {
@@ -10,10 +10,7 @@
     spiceUSBRedirection.enable = true;
   };
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["tebro"];
+  users.groups.libvirtd.members = [ "tebro" ];
 
-  environment.systemPackages = with pkgs; [
-    docker-compose
-    distrobox
-  ];
+  environment.systemPackages = with pkgs; [ docker-compose distrobox ];
 }

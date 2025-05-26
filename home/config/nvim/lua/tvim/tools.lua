@@ -65,4 +65,4 @@ local function init()
 	})
 end
 
-return {init = init}
+return { init = init }

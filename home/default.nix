@@ -1,38 +1,56 @@
-{ config
-, pkgs
-, lib
-, inputs
-, ...
-}: {
+{ pkgs, ... }: {
   imports = [ ./user ];
+  home = {
 
-  home.username = "tebro";
-  home.homeDirectory = "/home/tebro";
-  home.sessionVariables = {
-    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+    username = "tebro";
+    homeDirectory = "/home/tebro";
+    sessionVariables = { SSH_AUTH_SOCK = "/run/user/1000/ssh-agent"; };
+    stateVersion = "24.11";
+    packages = with pkgs; [ liberation_ttf nodejs_20 ];
   };
-  home.stateVersion = "24.11";
-  home.packages = with pkgs; [ liberation_ttf nodejs_20 ];
+  xdg = {
+    enable = true;
+    portal.enable = true;
+    portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+  catppuccin = {
 
-  xdg.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    flavor = "mocha";
+    # TODO: consider moving away from the global enable
+    enable = true;
 
-  catppuccin.flavor = "mocha";
-  catppuccin.enable = true;
-  # TODO: consider moving away from the global enable
+    # This fixes an issue with mako extraConfig being deprecated
+    mako.enable = false;
+    ghostty.enable = true;
+    alacritty.enable = true;
+    kitty.enable = true;
+    gtk.enable = true;
+    gtk.icon.enable = true;
+  };
+  programs = {
 
-  # This fixes an issue with mako extraConfig being deprecated
-  catppuccin.mako.enable = false;
+    ghostty.enable = true;
 
-  programs.ghostty.enable = true;
-  catppuccin.ghostty.enable = true;
+    alacritty.enable = true;
 
-  programs.alacritty.enable = true;
-  catppuccin.alacritty.enable = true;
+    kitty.enable = true;
 
-  programs.kitty.enable = true;
-  catppuccin.kitty.enable = true;
+    bat.enable = true;
+
+    git.enable = true;
+
+    neovide.enable = true;
+    neovide.settings = { };
+
+    # customized for raptor in raptor.nix
+    btop.enable = true;
+
+    ripgrep.enable = true;
+
+    tmux.enable = true;
+
+    ssh.enable = true;
+  };
 
   gtk = {
     enable = true;
@@ -47,20 +65,5 @@
       '';
     };
   };
-  catppuccin.gtk.enable = true;
-  catppuccin.gtk.icon.enable = true;
-
-  programs.bat.enable = true;
-  programs.git.enable = true;
-  programs.neovide.enable = true;
-  programs.neovide.settings = { };
-
-  # customized for raptor in raptor.nix
-  programs.btop.enable = true;
-
-  programs.ripgrep.enable = true;
-  programs.tmux.enable = true;
-
-  programs.ssh.enable = true;
   services.ssh-agent.enable = true;
 }

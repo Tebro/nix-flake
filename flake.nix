@@ -24,52 +24,45 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    catppuccin,
-    openaws-vpn-client,
-    nova-chatmix,
-    nvf,
-    ...
-  } @ inputs: let
-    home-config = {extraImports ? [], ...}: {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.backupFileExtension = "backup";
-      home-manager.users.tebro = {
-        imports =
-          [
-            ./home
-            catppuccin.homeModules.catppuccin
-            nvf.homeManagerModules.default
-          ]
-          ++ extraImports;
+  outputs =
+    { nixpkgs, home-manager, catppuccin, nova-chatmix, nvf, ... }@inputs:
+    let
+      home-config = { extraImports ? [ ], ... }: {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "backup";
+          users.tebro = {
+            imports = [
+              ./home
+              catppuccin.homeModules.catppuccin
+              nvf.homeManagerModules.default
+            ] ++ extraImports;
+          };
+        };
+      };
+    in {
+      nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          catppuccin.nixosModules.catppuccin
+          home-manager.nixosModules.home-manager
+          ./hosts/hornet.nix
+          (home-config { })
+        ];
+        specialArgs = { inherit inputs; };
+      };
+      nixosConfigurations.raptor = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          catppuccin.nixosModules.catppuccin
+          home-manager.nixosModules.home-manager
+          ./hosts/raptor.nix
+          (home-config { extraImports = [ ./home/raptor.nix ]; })
+          nova-chatmix.nixosModule
+          { services.nova-chatmix.enable = true; }
+        ];
+        specialArgs = { inherit inputs; };
       };
     };
-  in {
-    nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        catppuccin.nixosModules.catppuccin
-        home-manager.nixosModules.home-manager
-        ./hosts/hornet.nix
-        (home-config {})
-      ];
-      specialArgs = {inherit inputs;};
-    };
-    nixosConfigurations.raptor = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        catppuccin.nixosModules.catppuccin
-        home-manager.nixosModules.home-manager
-        ./hosts/raptor.nix
-        (home-config {extraImports = [./home/raptor.nix];})
-        nova-chatmix.nixosModule
-        {services.nova-chatmix.enable = true;}
-      ];
-      specialArgs = {inherit inputs;};
-    };
-  };
 }

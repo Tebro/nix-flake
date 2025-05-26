@@ -17,12 +17,8 @@
       cm = "commit -m";
     };
     extraConfig = {
-      pull = {
-        rebase = true;
-      };
-      push = {
-        default = "current";
-      };
+      pull = { rebase = true; };
+      push = { default = "current"; };
       rebase = {
         autosquash = true;
         autostash = true;

@@ -1,23 +1,19 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [./raptor-hardware-configuration.nix ../common.nix ../system/sshd.nix ../system/star-citizen.nix];
-  swapDevices = [
-    {
-      device = "/.swapfile";
-      size = 8 * 1024;
-    }
+{ pkgs, ... }: {
+  imports = [
+    ./raptor-hardware-configuration.nix
+    ../common.nix
+    ../system/sshd.nix
+    ../system/star-citizen.nix
   ];
+  swapDevices = [{
+    device = "/.swapfile";
+    size = 8 * 1024;
+  }];
 
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.amd
-  ];
+  environment.systemPackages = with pkgs; [ nvtopPackages.amd ];
 
   # Star citizen requirements
   boot.kernel.sysctl = {
@@ -27,7 +23,7 @@
 
   networking.hostName = "raptor"; # Define your hostname.
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # May need to figure out protopedal for steering wheel
   # https://gitlab.com/openirseny/protopedal

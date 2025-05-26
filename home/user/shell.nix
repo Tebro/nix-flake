@@ -12,10 +12,7 @@
       keyMode = "vi";
       mouse = true;
       shell = "${pkgs.zsh}/bin/zsh";
-      plugins = with pkgs.tmuxPlugins; [
-        sensible
-        cpu
-      ];
+      plugins = with pkgs.tmuxPlugins; [ sensible cpu ];
     };
 
     zsh = {

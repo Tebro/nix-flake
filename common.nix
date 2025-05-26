@@ -1,10 +1,5 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+{ pkgs, inputs, ... }: {
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   imports = [
     ./system/boot.nix
     ./system/users.nix
@@ -30,77 +25,85 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    cryptsetup
-    neovim
-    wget
-    gnumake
-    jq
-    gcc
-    gdb
-    rustc
-    cargo
-    go
-    zig
-    zls
-    playerctl
-    tldr
-    pavucontrol
-    wireplumber
-    slack
-    signal-desktop
-    winbox4
-    lua-language-server
-    inputs.openaws-vpn-client.defaultPackage.x86_64-linux
-    inputs.zen-browser.packages.x86_64-linux.default
-    (let
-      version = "0.188.1-pre";
-    in
-      inputs.zed-editor.packages.x86_64-linux.zed-editor-preview-bin.overrideAttrs {
+  environment = {
+    systemPackages = with pkgs; [
+      cryptsetup
+      neovim
+      wget
+      gnumake
+      jq
+      gcc
+      gdb
+      rustc
+      cargo
+      go
+      zig
+      zls
+      playerctl
+      tldr
+      pavucontrol
+      wireplumber
+      slack
+      signal-desktop
+      winbox4
+      lua-language-server
+      inputs.openaws-vpn-client.defaultPackage.x86_64-linux
+      inputs.zen-browser.packages.x86_64-linux.default
+      (let version = "0.188.1-pre";
+      in inputs.zed-editor.packages.x86_64-linux.zed-editor-preview-bin.overrideAttrs {
         inherit version;
         src = pkgs.fetchurl {
-          url = "https://github.com/zed-industries/zed/releases/download/v${version}/zed-linux-x86_64.tar.gz";
+          url =
+            "https://github.com/zed-industries/zed/releases/download/v${version}/zed-linux-x86_64.tar.gz";
           sha256 = "sha256-Y+SO31alHUlp0YbH3Dd2HaFU6tRdRmjyIiiRKo77QQU=";
         };
       })
-    package-version-server # used by zed
-    bolt-launcher
-    nixd
-    nil
-    evince
-    unzip
-  ];
-
-  environment.sessionVariables = rec {
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
-
-    # Not officially in the specification
-    XDG_BIN_HOME = "$HOME/.local/bin";
-    PATH = [
-      "${XDG_BIN_HOME}"
+      package-version-server # used by zed
+      bolt-launcher
+      nixd
+      nil
+      evince
+      unzip
     ];
+
+    sessionVariables = rec {
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
+
+      # Not officially in the specification
+      XDG_BIN_HOME = "$HOME/.local/bin";
+      PATH = [ "${XDG_BIN_HOME}" ];
+    };
+
+    variables.EDITOR = "nvim";
+  };
+  services = {
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        package = pkgs.kdePackages.sddm;
+      };
+      defaultSession = "hyprland-uwsm";
+    };
+
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
+    tumbler.enable = true;
+  };
+  security.pam.services.sddm.enableGnomeKeyring = true;
+  catppuccin = {
+    flavor = "mocha";
+    enable = true;
   };
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "hyprland-uwsm";
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
+  programs = {
+    thunar.enable = true;
+    xfconf.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
-
-  environment.variables.EDITOR = "nvim";
-  catppuccin.flavor = "mocha";
-  catppuccin.enable = true;
-
-  programs.thunar.enable = true;
-  programs.xfconf.enable = true;
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-
-  # sudo nix-channel update
-  programs.command-not-found.enable = true;
+    # sudo nix-channel update
+    command-not-found.enable = true;
+  };
 }

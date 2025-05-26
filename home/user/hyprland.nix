@@ -2,11 +2,7 @@
   imports = [ ./waybar.nix ];
   programs.fuzzel = {
     enable = true;
-    settings = {
-      main = {
-        terminal = "${pkgs.kitty}/bin/kitty -e";
-      };
-    };
+    settings = { main = { terminal = "${pkgs.kitty}/bin/kitty -e"; }; };
   };
   services.dunst.enable = true;
   programs.hyprlock.enable = true;
@@ -250,7 +246,6 @@
         "opacity 1.0 override 1.0 override 1.0, class:waybar"
         # Fix some dragging issues with XWayland
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-
 
         # "Drop down terminal"
         "float, class:^(org.tebro.tdropmux)$"

@@ -4,21 +4,17 @@
     uid = 1000;
     isNormalUser = true;
     description = "tebro";
-    extraGroups = ["networkmanager"];
+    extraGroups = [ "networkmanager" ];
   };
 
   security.sudo = {
     enable = true;
-    extraRules = [
-      {
-        users = ["tebro"];
-        commands = [
-          {
-            command = "ALL";
-            options = ["NOPASSWD"];
-          }
-        ];
-      }
-    ];
+    extraRules = [{
+      users = [ "tebro" ];
+      commands = [{
+        command = "ALL";
+        options = [ "NOPASSWD" ];
+      }];
+    }];
   };
 }
