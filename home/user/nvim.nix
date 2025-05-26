@@ -1,11 +1,4 @@
 {pkgs, ...}: {
-  home = {
-    file.".luacheckrc" = {
-      text = ''
-        globals = { "vim" }
-      '';
-    };
-  };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
