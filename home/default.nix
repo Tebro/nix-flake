@@ -31,6 +31,9 @@
   programs.alacritty.enable = true;
   catppuccin.alacritty.enable = true;
 
+  programs.kitty.enable = true;
+  catppuccin.kitty.enable = true;
+
   gtk = {
     enable = true;
     gtk3.extraConfig = {

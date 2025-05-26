@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       main = {
-        terminal = "${pkgs.alacritty}/bin/alacritty -e";
+        terminal = "${pkgs.kitty}/bin/kitty -e";
       };
     };
   };
@@ -51,7 +51,7 @@
     settings = {
       monitor = ",preferred,auto,1";
 
-      "$terminal" = "alacritty";
+      "$terminal" = "kitty";
       "$fileManager" = "thunar";
 
       exec-once = [ "nm-applet" "waybar" ];

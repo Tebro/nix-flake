@@ -1,6 +1,6 @@
 
 CLASS=org.tebro.tdropmux
-TERM=alacritty # Chose yours here, needs to support --class
+TERM=kitty # Chose yours here, needs to support --class
 ACTIVE_WORKSPACE="$(hyprctl activeworkspace -j | jq -r .id)" || echo "hdrop: Error executing dependencies 'hyprctl' or 'jq'" "Check terminal output of 'hdrop $COMMANDLINE'"
 VERBOSE=false
 FOCUS=false
