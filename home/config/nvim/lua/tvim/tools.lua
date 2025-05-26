@@ -25,7 +25,7 @@ local function init()
 			markdown = { "prettier" },
 			["markdown.mdx"] = { "prettier" },
 
-			nix = { "nixpkgs_fmt" },
+			nix = { "nixfmt" },
 			bash = { "shellharden" },
 			["_"] = { "trim_whitespace" },
 		},
