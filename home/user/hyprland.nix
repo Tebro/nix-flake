@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       main = {
-        terminal = "${pkgs.ghostty}/bin/ghostty -e";
+        terminal = "${pkgs.alacritty}/bin/alacritty -e";
       };
     };
   };
@@ -51,7 +51,7 @@
     settings = {
       monitor = ",preferred,auto,1";
 
-      "$terminal" = "ghostty";
+      "$terminal" = "alacritty";
       "$fileManager" = "thunar";
 
       exec-once = [ "nm-applet" "waybar" ];
@@ -162,7 +162,7 @@
 
       bind = [
         "$mainMod, Return, exec, $terminal"
-        "$mainMod, M, exec, /home/tebro/.local/bin/ghostty-dropdown"
+        "$mainMod, M, exec, /home/tebro/.local/bin/dropdown-term"
         "$mainMod SHIFT, Q, killactive,"
         "$mainMod SHIFT, E, exit,"
         "$mainMod, E, exec, $fileManager"
