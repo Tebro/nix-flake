@@ -55,9 +55,9 @@
           nvim-lint
           conform-nvim
 
-          nvim-treesitter
           nvim-treesitter-textobjects
           nvim-treesitter-context
+          nvim-treesitter.withAllGrammars
 
           # AI things
           copilot-lua

@@ -63,6 +63,18 @@ local function init()
 			require("lint").try_lint()
 		end,
 	})
+
+	--require("treesitter-context").setup({ multiline_threshold = 2 })
+	require("nvim-treesitter.configs").setup({
+		auto_install = false,
+		highlight = {
+			enable = true,
+			additional_vim_regex_highlighting = false,
+		},
+		indent = {
+			enable = true,
+		},
+	})
 end
 
 return { init = init }
