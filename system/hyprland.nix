@@ -16,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     waybar
-    fuzzel
+    rofi-wayland
     dunst
     swww
     kitty

@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   imports = [ ./waybar.nix ];
-  programs.fuzzel = {
+  programs.rofi = {
     enable = true;
-    settings = { main = { terminal = "${pkgs.kitty}/bin/kitty -e"; }; };
+    package = pkgs.rofi-wayland;
   };
   services.dunst.enable = true;
   programs.hyprlock.enable = true;
@@ -36,7 +36,7 @@
   catppuccin = {
     hyprland.enable = true;
     hyprlock.enable = true;
-    fuzzel.enable = true;
+    rofi.enable = true;
     dunst.enable = true;
   };
   wayland.windowManager.hyprland = {
@@ -166,8 +166,8 @@
         "$mainMod, F, fullscreen, 1"
         "$mainMod SHIFT, F, fullscreen, 0"
 
-        "$mainMod, D, exec, fuzzel"
-        "$mainMod SHIFT, D, exec, fuzzel --list-executables-in-path"
+        "$mainMod, D, exec, rofi -show drun -show-icons"
+        "$mainMod SHIFT, D, exec, rofi -show run"
 
         "$mainMod SHIFT, P, exec, loginctl lock-session"
 
