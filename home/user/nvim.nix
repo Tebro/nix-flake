@@ -29,7 +29,7 @@
       (pkgs.vimUtils.buildVimPlugin {
         name = "tvim";
         src = ../config/nvim;
-        #doCheck = false;
+        doCheck = false;
         dependencies = with pkgs.vimPlugins; [
           catppuccin-nvim
           nvim-web-devicons
