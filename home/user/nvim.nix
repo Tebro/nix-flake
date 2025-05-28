@@ -36,6 +36,9 @@
 
           fugitive
 
+          neorg
+          neorg-telescope
+
           oil-nvim
           flash-nvim
           goto-preview

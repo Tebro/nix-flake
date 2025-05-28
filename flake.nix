@@ -22,10 +22,11 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
 
-  outputs =
-    { nixpkgs, home-manager, catppuccin, nova-chatmix, nvf, ... }@inputs:
+  outputs = { nixpkgs, home-manager, catppuccin, nova-chatmix, nvf
+    , neorg-overlay, ... }@inputs:
     let
       home-config = { extraImports ? [ ], ... }: {
         home-manager = {
@@ -47,6 +48,7 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
+          { nixpkgs.overlays = [ neorg-overlay.overlays.default ]; }
           ./hosts/hornet.nix
           (home-config { })
         ];
@@ -57,6 +59,7 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
+          { nixpkgs.overlays = [ neorg-overlay.overlays.default ]; }
           ./hosts/raptor.nix
           (home-config { extraImports = [ ./home/raptor.nix ]; })
           nova-chatmix.nixosModule
