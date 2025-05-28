@@ -98,6 +98,10 @@ local function init()
 			},
 		},
 	})
+	vim.keymap.set("n", "<localleader>jj", ":Neorg journal today<cr>")
+	vim.keymap.set("n", "<localleader>jt", ":Neorg journal tomorrow<cr>")
+	vim.keymap.set("n", "<localleader>jy", ":Neorg journal yesterday<cr>")
+	vim.keymap.set("n", "<localleader>jl", ":Neorg journal toc<cr>")
 end
 
 return { init = init }
