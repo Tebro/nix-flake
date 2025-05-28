@@ -96,12 +96,21 @@ local function init()
 					default_workspace = "notes",
 				},
 			},
+			["core.integrations.telescope"] = {
+				config = {
+					insert_file_link = {
+						show_title_preview = true,
+					},
+				},
+			},
 		},
 	})
 	vim.keymap.set("n", "<localleader>jj", ":Neorg journal today<cr>")
 	vim.keymap.set("n", "<localleader>jt", ":Neorg journal tomorrow<cr>")
 	vim.keymap.set("n", "<localleader>jy", ":Neorg journal yesterday<cr>")
 	vim.keymap.set("n", "<localleader>jl", ":Neorg journal toc<cr>")
+	vim.keymap.set("n", "<leader>fn", "<Plug>(neorg.telescope.find_norg_files)")
+	vim.keymap.set("n", "<leader>fN", "<Plug>(neorg.telescope.insert_link)")
 end
 
 return { init = init }

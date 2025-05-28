@@ -26,6 +26,7 @@ local function init()
 		},
 
 		sources = {
+			{ name = "neorg" },
 			{ name = "render-markdown" },
 			{ name = "luasnip" },
 			{ name = "nvim_lsp" },
