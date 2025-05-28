@@ -76,6 +76,8 @@ local function init()
 		},
 	})
 
+	-- This is used by neorg concealer
+	vim.opt.conceallevel = 3
 	require("neorg").setup({
 		load = {
 			["core.defaults"] = {},

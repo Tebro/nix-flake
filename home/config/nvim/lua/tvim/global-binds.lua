@@ -1,20 +1,21 @@
 local function init()
 	-- <leader> is space
 	vim.g.mapleader = " "
+	vim.g.maplocalleader = ","
 
 	-- use fd to get out of insert mode in files and terminal
-	vim.keymap.set('t', 'fd', '<C-\\><C-n>')
-	vim.keymap.set('i', 'fd', '<Esc>')
-	vim.keymap.set('v', 'fd', '<Esc>')
+	vim.keymap.set("t", "fd", "<C-\\><C-n>")
+	vim.keymap.set("i", "fd", "<Esc>")
+	vim.keymap.set("v", "fd", "<Esc>")
 
 	-- nice save shortcut
-	vim.keymap.set('n', '<leader>w', vim.cmd.update)
+	vim.keymap.set("n", "<leader>w", vim.cmd.update)
 	-- Yank to system clipboard
-	vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
-	vim.keymap.set('n', '<leader>Y', '"+Y')
+	vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
+	vim.keymap.set("n", "<leader>Y", '"+Y')
 
 	-- Paste from system
-	vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+	vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 
 	-- Visual mode move lines
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -31,15 +32,15 @@ local function init()
 	vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 	-- clear highlight
-	vim.keymap.set('n', '<leader><return>', ':noh<cr>')
+	vim.keymap.set("n", "<leader><return>", ":noh<cr>")
 
 	-- Maximize window
-	vim.keymap.set('n', '<C-W>m', '<C-W>|<C-W>_')
+	vim.keymap.set("n", "<C-W>m", "<C-W>|<C-W>_")
 
 	-- New tab terminal
-	vim.keymap.set('n', '<leader>tT', ':tabnew +terminal<cr>')
+	vim.keymap.set("n", "<leader>tT", ":tabnew +terminal<cr>")
 
-	vim.keymap.set('n', '<leader>rl', ':checktime<cr>')
+	vim.keymap.set("n", "<leader>rl", ":checktime<cr>")
 
 	-- Expand 'cc' into 'CodeCompanion' in the command line
 	vim.cmd([[cab cc CodeCompanion]])
