@@ -15,6 +15,8 @@
       ri = "rebase -i";
       f = "fetch";
       cm = "commit -m";
+      main = "!git fetch origin && git switch -C main origin/main";
+      master = "!git fetch origin && git switch -C master origin/master";
     };
     extraConfig = {
       init = { defaultBranch = "main"; };
