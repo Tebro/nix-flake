@@ -40,6 +40,7 @@
           neorg-telescope
 
           oil-nvim
+          auto-session
           flash-nvim
           goto-preview
           toggleterm-nvim

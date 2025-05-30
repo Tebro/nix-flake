@@ -59,6 +59,8 @@ local function init()
 	lspconfig.nil_ls.setup({ capabilities = capabilities })
 	lspconfig.zls.setup({ capabilities = capabilities })
 
+	vim.lsp.enable({ "bashls", "lua_ls", "nixd", "nil_ls", "zls" })
+
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)

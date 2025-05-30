@@ -93,6 +93,13 @@ local function init()
 	vim.keymap.set("n", "<leader>th", "<Cmd>ToggleTerm direction=horizontal<CR>")
 	vim.keymap.set("n", "<leader>tv", "<Cmd>ToggleTerm direction=vertical<CR>")
 	vim.keymap.set("n", "<leader>tt", "<Cmd>ToggleTerm<CR>")
+
+	require("auto-session").setup({
+		suppressed_dirs = { "~/", "~/code", "~/Downloads", "/" },
+		cwd_change_handling = true,
+		git_use_branch_name = true,
+		git_auto_restore_on_branch_change = true,
+	})
 end
 
 return { init = init }

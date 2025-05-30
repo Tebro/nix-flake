@@ -1,7 +1,7 @@
 local function init()
 	require("copilot").setup({
 		panel = { enabled = false },
-		suggestions = { enabled = true },
+		suggestions = { enabled = true, auto_trigger = true },
 	})
 	require("codecompanion").setup({
 		adapters = {
