@@ -33,7 +33,14 @@
 
     alacritty.enable = true;
 
-    kitty.enable = true;
+    kitty = {
+      enable = true;
+      enableGitIntegration = true;
+      font = {
+        name = "FiraCode-Nerd-Font-Mono-Reg";
+        package = pkgs.nerd-fonts.fira-code;
+      };
+    };
 
     bat.enable = true;
 
