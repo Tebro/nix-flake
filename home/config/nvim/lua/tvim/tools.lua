@@ -77,7 +77,12 @@ local function init()
 	})
 
 	-- This is used by neorg concealer
-	vim.opt.conceallevel = 3
+	vim.api.nvim_create_autocmd({ "BufEnter" }, {
+		pattern = { "*.norg" },
+		callback = function()
+			vim.opt.conceallevel = 3
+		end,
+	})
 	require("neorg").setup({
 		load = {
 			["core.defaults"] = {},
