@@ -64,6 +64,9 @@
       nil
       evince
       unzip
+      awscli2
+      jq
+      postgresql
     ];
 
     sessionVariables = rec {
