@@ -86,6 +86,7 @@
   catppuccin = {
     flavor = "mocha";
     enable = true;
+    autoEnable = true;
   };
 
   programs = {

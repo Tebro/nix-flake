@@ -12,6 +12,11 @@
     enable = true;
     portal.enable = true;
     portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    portal.config = {
+      common = {
+        default = "gtk";
+      };
+    };
   };
   catppuccin = {
 
@@ -57,6 +62,7 @@
     tmux.enable = true;
 
     ssh.enable = true;
+    ssh.enableDefaultConfig = false;
   };
 
   gtk = {
