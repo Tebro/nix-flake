@@ -5,8 +5,7 @@
   imports = [ ./hornet-hardware-configuration.nix ../common.nix ];
   networking.hostName = "hornet"; # Define your hostname.
 
-  boot.initrd.luks.devices.cryptroot.device =
-    "/dev/disk/by-uuid/1f875867-738c-4ae4-ba3f-bf27363fdead";
+  boot.initrd.luks.devices."luks-3351c4c2-62ea-4f7f-a56f-9aa7c2a49203".device = "/dev/disk/by-uuid/3351c4c2-62ea-4f7f-a56f-9aa7c2a49203";
 
   powerManagement = {
     enable = true;
@@ -24,5 +23,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 }
