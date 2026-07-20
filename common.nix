@@ -33,12 +33,15 @@
       jq
       gcc
       gdb
+      cargo
+      nodejs
       playerctl
       tldr
       pavucontrol
       wireplumber
       slack
       signal-desktop
+      discord
       winbox4
       #lua-language-server
       #inputs.openaws-vpn-client.defaultPackage.x86_64-linux
@@ -99,10 +102,16 @@
     nix-ld.enable = true;
     nm-applet.enable = true;
 
+    neovim = {
+      enable = true;
+    };
+
     # sudo nix-channel update
     command-not-found.enable = true;
-    dconf.profiles.user.databases = [{
-      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-    }];
+    dconf.profiles.user.databases = [
+      {
+        settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      }
+    ];
   };
 }
