@@ -6,11 +6,11 @@
       position = "top";
       reload_style_on_change = true;
 
-      modules-left = [ "hyprland/workspaces" ];
+      modules-left = [ "sway/workspaces" ];
       modules-center = [ "clock" ];
       modules-right = [
         "custom/dunst"
-        "hyprland/language"
+        "sway/language"
         "cpu"
         "memory"
         "backlight"
@@ -33,11 +33,11 @@
         show-passive-items = true;
         spacing = 10;
       };
-      "hyprland/workspaces" = {
+      "sway/workspaces" = {
         active-only = false;
         disable-scroll = false;
       };
-      "hyprland/language" = {
+      "sway/language" = {
         "format-fi" = "🇫🇮";
         "format-en" = "🇺🇸";
       };

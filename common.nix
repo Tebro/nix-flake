@@ -12,8 +12,7 @@
     ./system/firewall.nix
     ./system/virtualisation.nix
     ./system/services.nix
-    ./system/flatpak.nix
-    ./system/hyprland.nix
+    #./system/flatpak.nix
     ./system/certificates.nix
     ./system/gaming.nix
     ./system/shell.nix
@@ -34,11 +33,6 @@
       jq
       gcc
       gdb
-      rustc
-      cargo
-      go
-      zig
-      zls
       playerctl
       tldr
       pavucontrol
@@ -46,18 +40,10 @@
       slack
       signal-desktop
       winbox4
-      lua-language-server
-      inputs.openaws-vpn-client.defaultPackage.x86_64-linux
+      #lua-language-server
+      #inputs.openaws-vpn-client.defaultPackage.x86_64-linux
       inputs.zen-browser.packages.x86_64-linux.default
-      (let version = "0.188.1-pre";
-      in inputs.zed-editor.packages.x86_64-linux.zed-editor-preview-bin.overrideAttrs {
-        inherit version;
-        src = pkgs.fetchurl {
-          url =
-            "https://github.com/zed-industries/zed/releases/download/v${version}/zed-linux-x86_64.tar.gz";
-          sha256 = "sha256-Y+SO31alHUlp0YbH3Dd2HaFU6tRdRmjyIiiRKo77QQU=";
-        };
-      })
+      zed-editor
       package-version-server # used by zed
       bolt-launcher
       nixd
@@ -89,7 +75,7 @@
         wayland.enable = true;
         package = pkgs.kdePackages.sddm;
       };
-      defaultSession = "hyprland-uwsm";
+      defaultSession = "sway";
     };
 
     gnome.gnome-keyring.enable = true;
@@ -105,8 +91,17 @@
   programs = {
     thunar.enable = true;
     xfconf.enable = true;
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
+    nix-ld.enable = true;
+    nm-applet.enable = true;
 
     # sudo nix-channel update
     command-not-found.enable = true;
+    dconf.profiles.user.databases = [{
+      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    }];
   };
 }

@@ -3,12 +3,12 @@
     #./config.nix
     ./scripts.nix
     ./git.nix
-    ./hyprland.nix
+    ./sway.nix
     ./shell.nix
     ./syncthing.nix
     ./pipewire.nix
     #./nvf.nix
-    ./nvim.nix
+    #./nvim.nix
     ./zed.nix
   ];
 }

@@ -5,119 +5,131 @@
 //
 // To see all of Zed's default settings without changing your
 // custom settings, run `zed: open default settings` from the
-// command palette
+// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "icon_theme": "Catppuccin Mocha",
-  "git_panel": {
-    "button": true
-  },
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
-  "auto_signature_help": false,
   "agent": {
+    "play_sound_when_agent_done": "when_hidden",
+    "single_file_review": true,
     "profiles": {
       "write": {
+        "default_model": {
+          "provider": "openai-subscribed",
+          "model": "gpt-5.5",
+          "enable_thinking": true,
+          "effort": "medium",
+        },
         "name": "Write",
         "tools": {
-          "open": true,
-          "terminal": true,
-          "batch_tool": true,
-          "code_symbols": true,
-          "copy_path": false,
-          "create_file": true,
-          "delete_path": false,
+          "copy_path": true,
+          "create_directory": true,
+          "delete_path": true,
           "diagnostics": true,
+          "apply_code_action": true,
           "edit_file": true,
-          "fetch": true,
+          "fetch": false,
+          "find_path": true,
+          "find_references": true,
+          "get_code_actions": true,
+          "go_to_definition": true,
           "list_directory": true,
+          "project_notifications": false,
           "move_path": true,
           "now": true,
-          "find_path": true,
+          "rename_symbol": true,
           "read_file": true,
+          "restore_file_from_disk": true,
+          "save_file": true,
+          "open": true,
           "grep": true,
-          "symbol_info": true,
+          "spawn_agent": true,
+          "terminal": false,
           "thinking": true,
-          "create_directory": true
+          "update_plan": true,
+          "search_web": true,
         },
         "enable_all_context_servers": true,
-        "context_servers": {
-          "postgres-context-server": {
-            "tools": {
-              "query": true,
-              "pg-schema": true
-            }
-          }
-        }
-      }
+        "context_servers": {},
+      },
     },
+    "inline_assistant_model": {
+      "provider": "lmstudio",
+      "model": "google/gemma-4-26b-a4b-qat",
+      "enable_thinking": false,
+    },
+    "default_profile": "ask",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3.7-sonnet"
+      "effort": "medium",
+      "provider": "openai-subscribed",
+      "model": "gpt-5.5",
+      "enable_thinking": true,
     },
-    "version": "2",
+    "favorite_models": [
+      {
+        "provider": "amazon-bedrock",
+        "model": "claude-opus-4-6",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      {
+        "provider": "lmstudio",
+        "model": "google/gemma-4-26b-a4b-qat",
+        "enable_thinking": false
+      },
+      {
+        "provider": "lmstudio",
+        "model": "google/gemma-4-12b-qat",
+        "enable_thinking": false
+      },
+      {
+        "provider": "openai-subscribed",
+        "model": "gpt-5.5",
+        "enable_thinking": true,
+        "effort": "medium"
+      }
+    ],
+    "model_parameters": [],
   },
-  "telemetry": {
-    "diagnostics": true,
-    "metrics": true
+  "cli_default_open_behavior": "existing_window",
+  "agent_servers": {
+    "opencode": {
+      "default_config_options": {
+        "model": "openai/gpt-5.5",
+      },
+      "favorite_config_option_values": {
+        "model": [
+          "amazon-bedrock/anthropic.claude-sonnet-4-6",
+          "openai/gpt-5.5",
+          "amazon-bedrock/anthropic.claude-opus-4-6-v1",
+        ],
+      },
+      "type": "registry",
+    },
   },
-  "tabs": {
-    "git_status": true,
-    "file_icons": true
+  "code_lens": "off",
+  "language_models": {
+    "bedrock": {
+      "authentication_method": "api_key",
+      "region": "eu-west-1",
+    },
   },
-  "indent_guides": {
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_smartcase_find": true,
+  },
+  "which_key": {
     "enabled": true,
-    "coloring": "indent_aware"
   },
-  "tab_bar": {
-    "show": true
+  "edit_predictions": {
+    "allow_data_collection": "no",
+    "provider": "zed",
   },
   "vim_mode": true,
-  "vim": {
-    "use_smartcase_find": true
-  },
-  "relative_line_numbers": true,
-  "hard_tabs": false,
-  "formatter": "language_server",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
   "theme": {
     "mode": "system",
     "light": "Catppuccin Mocha",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
-  "preview_tabs": {
-    "enabled": false,
-    "enable_preview_from_file_finder": false,
-    "enable_preview_from_code_navigation": false
-  },
-  "toolbar": {
-    "breadcrumbs": true,
-    "quick_actions": true,
-    "selections_menu": true
-  },
-  "terminal": {
-    "line_height": "comfortable",
-    "toolbar": {
-      "show": false,
-      "breadcrumbs": false
-    }
-  },
-  "autosave": "on_window_change",
-  "languages": {
-    "Go": {
-      "tab_size": 4,
-      "hard_tabs": true,
-    },
-    "JavaScript": {
-      "tab_size": 2,
-      "formatter": "prettier"
-    },
-    "TypeScript": {
-      "tab_size": 2,
-      "formatter": "prettier"
-    },
-    "CSS": {
-      "tab_size": 2,
-      "formatter": "prettier"
-    }
-  }
 }

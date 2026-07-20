@@ -7,86 +7,88 @@
 // from the command palette.
 [
   {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !menu",
+    "context": "Workspace",
     "bindings": {
-      "space f f": "file_finder::Toggle",
-      "space f b": "tab_switcher::ToggleAll",
-      "space f g": "workspace::NewSearch",
-    }
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-h": "workspace::ToggleLeftDock",
+      "ctrl-j": "workspace::ToggleBottomDock",
+      "ctrl-l": "workspace::ToggleRightDock",
+    },
   },
   {
     "context": "Editor && vim_mode == normal && !menu",
     "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space f b": "tab_switcher::ToggleAll",
+      "space f g": "workspace::NewSearch",
       "space t t": "workspace::ToggleBottomDock",
       "space t shift-t": [
         "task::Spawn",
         {
-          "task_name": "terminal"
-        }
+          "task_name": "terminal",
+        },
       ],
       "space t s": "task::Spawn",
       "space g s": "git_panel::ToggleFocus",
       "space g d": "git::Diff",
       "space g c": "git::Commit",
-      "space g r": "git::Restore",
-      "space g n": "editor::GoToHunk",
-      "space g shift-n": "git::StageAndNext",
-      "space g p": "editor::GoToPreviousHunk",
-      "space w": "workspace::Save",
-      "space l f": "editor::Format",
-      "space c a": "editor::ToggleCodeActions",
+      "space g l": "git_graph::Open",
+      "space a a": "outline_panel::ToggleFocus",
+      "space a shift-a": "outline::Toggle",
+      "space enter": "buffer_search::Dismiss",
       "space e": "project_panel::ToggleFocus",
       "space shift-e": "pane::RevealInProjectPanel",
+      "space w": "workspace::Save",
+      "space c a": "editor::ToggleCodeActions",
       "shift-ctrl-k": "editor::ShowSignatureHelp",
       "space r n": "editor::Rename",
       "space l": "vim::SelectLargerSyntaxNode",
-      "space h": "vim::SelectSmallerSyntaxNode"
-    }
+      "space h": "vim::SelectSmallerSyntaxNode",
+    },
   },
   {
     "context": "vim_mode == visual || vim_mode == normal",
     "bindings": {
-      "ctrl-h": "workspace::ToggleLeftDock",
-      "ctrl-j": "workspace::ToggleBottomDock",
-      "ctrl-l": "workspace::ToggleRightDock",
-      "space g shift-a": "git::ToggleStaged",
-      "space g a": "git::StageAndNext",
+      "space f g": "workspace::NewSearch",
       "space g r": "git::Restore",
       "space g e": "editor::ToggleSelectedDiffHunks",
-    }
+      "s": "vim::PushSneak",
+      "shift-s": "vim::PushSneakBackward",
+    },
   },
   {
-    "context": "Editor && showing_completions",
+    "context": "vim_mode == normal",
     "bindings": {
-      "ctrl-y": "editor::ConfirmCompletion",
-    }
+      "space g shift-a": "git::ToggleStaged",
+      "space g a": "git::StageAndNext",
+    },
   },
   {
-    "context": "Editor && vim_mode == insert && !menu",
+    "context": "vim_mode == visual",
     "bindings": {
-      "f d": [
-        "workspace::SendKeystrokes",
-        "escape"
-      ],
-      "ctrl-l": "editor::AcceptPartialEditPrediction"
-    }
+      "space g a": "git::StageRange",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "f d": "vim::NormalBefore",
+    },
   },
   {
     "context": "Editor && vim_mode == visual && !menu",
     "bindings": {
-      "f d": [
-        "workspace::SendKeystrokes",
-        "escape"
-      ],
-      "shift-s": [
-        "vim::PushAddSurrounds",
-        {}
-      ],
+      //"f d": ["workspace::SendKeystrokes", "escape"],
+      "shift-s": "vim::PushAddSurrounds",
       "shift-j": "editor::MoveLineDown",
       "shift-k": "editor::MoveLineUp",
       "space l": "vim::SelectLargerSyntaxNode",
-      "space h": "vim::SelectSmallerSyntaxNode"
-    }
+      "space h": "vim::SelectSmallerSyntaxNode",
+    },
   },
   {
     "context": "Terminal || Dock",
@@ -95,19 +97,7 @@
       "ctrl-w j": "workspace::ActivatePaneDown",
       "ctrl-w k": "workspace::ActivatePaneUp",
       "ctrl-w l": "workspace::ActivatePaneRight",
-      "ctrl-w c": "pane::CloseActiveItem"
-    }
+      "ctrl-w c": "pane::CloseActiveItem",
+    },
   },
-  //{
-  //  "context": "Editor && edit_prediction",
-  //  "bindings": {
-  //    "super-l": "editor::AcceptEditPrediction"
-  //  }
-  //},
-  //{
-  //  "context": "Editor && edit_prediction_conflict",
-  //  "bindings": {
-  //    "super-l": "editor::AcceptEditPrediction"
-  //  }
-  //}
 ]

@@ -5,8 +5,8 @@
     username = "tebro";
     homeDirectory = "/home/tebro";
     sessionVariables = { SSH_AUTH_SOCK = "/run/user/1000/ssh-agent"; };
-    stateVersion = "24.11";
-    packages = with pkgs; [ liberation_ttf nodejs_20 ];
+    stateVersion = "26.05";
+    packages = with pkgs; [ liberation_ttf ];
   };
   xdg = {
     enable = true;
@@ -18,13 +18,13 @@
     flavor = "mocha";
     # TODO: consider moving away from the global enable
     enable = true;
+    autoEnable = true;
 
     # This fixes an issue with mako extraConfig being deprecated
     mako.enable = false;
     ghostty.enable = true;
     alacritty.enable = true;
     kitty.enable = true;
-    gtk.enable = true;
     gtk.icon.enable = true;
   };
   programs = {

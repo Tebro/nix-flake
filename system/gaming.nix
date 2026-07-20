@@ -1,16 +1,15 @@
 { pkgs, ... }: {
   programs = {
     steam.enable = true;
-    steam.gamescopeSession.enable = true;
+    #steam.gamescopeSession.enable = true;
     gamemode.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     mangohud
-    protonup
     lutris
     heroic
-    bottles
+    #bottles
   ];
 
   environment.sessionVariables = {
