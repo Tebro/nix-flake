@@ -8,7 +8,10 @@
     nvf.url = "github:notashelf/nvf";
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
-    openaws-vpn-client.url = "github:jonathanxD/openaws-vpn-client";
+    awsvpnclient = {
+      url = "github:AddG0/awsvpnclient-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #nova-chatmix.url = "path:/home/tebro/code/nova-chatmix-linux";
     nova-chatmix.url = "github:Tebro/nova-chatmix-linux?ref=feat/nix-flake";
     zen-browser = {
@@ -22,8 +25,8 @@
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, nova-chatmix, nvf
-    , neorg-overlay, ... }@inputs:
+  outputs = { nixpkgs, home-manager, catppuccin, nova-chatmix, nvf, awsvpnclient,
+    neorg-overlay, ... }@inputs:
     let
       home-config = { extraImports ? [ ], ... }: {
         home-manager = {
@@ -45,6 +48,8 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
+          awsvpnclient.nixosModules.default
+          { programs.awsvpnclient.enable = true; }
           { nixpkgs.overlays = [ neorg-overlay.overlays.default ]; }
           ./hosts/hornet.nix
           (home-config { })
