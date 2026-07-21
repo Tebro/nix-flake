@@ -1,7 +1,13 @@
 { pkgs, ... }: {
   programs = {
-    steam.enable = true;
-    #steam.gamescopeSession.enable = true;
+		steam = {
+			enable = true;
+			protontricks.enable = true;
+			extraPackages = [
+				pkgs.gamescope
+			];
+			#gamescopeSession.enable = true;
+		};
     gamemode.enable = true;
   };
 
@@ -9,6 +15,8 @@
     mangohud
     lutris
     heroic
+		boxflat
+		protonplus
     #bottles
   ];
 
