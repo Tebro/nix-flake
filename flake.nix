@@ -61,6 +61,8 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
+          awsvpnclient.nixosModules.default
+          { programs.awsvpnclient.enable = true; }
           { nixpkgs.overlays = [ neorg-overlay.overlays.default ]; }
           ./hosts/raptor.nix
           (home-config { extraImports = [ ./home/raptor.nix ]; })
