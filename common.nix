@@ -56,6 +56,7 @@
       awscli2
       jq
       postgresql
+      nodejs_22
     ];
 
     sessionVariables = rec {
