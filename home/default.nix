@@ -7,6 +7,7 @@
     sessionVariables = { SSH_AUTH_SOCK = "/run/user/1000/ssh-agent"; };
     stateVersion = "26.05";
     packages = with pkgs; [ liberation_ttf ];
+    pointerCursor.enable = true;
   };
   xdg = {
     enable = true;

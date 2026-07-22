@@ -38,6 +38,7 @@
     hyprlock.enable = true;
     rofi.enable = true;
     dunst.enable = true;
+    cursors.enable = true;
   };
   wayland.windowManager.sway = {
     enable = true;
