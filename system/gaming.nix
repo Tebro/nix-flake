@@ -20,6 +20,10 @@
     #bottles
   ];
 
+	services.udev.packages = [
+		pkgs.boxflat
+	];
+
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATH =
       "/home/tebro/.steam/root/compatibilitytools.d";
