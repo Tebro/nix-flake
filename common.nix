@@ -41,7 +41,6 @@
       wireplumber
       slack
       signal-desktop
-      discord
       winbox4
       #lua-language-server
       #inputs.openaws-vpn-client.defaultPackage.x86_64-linux
