@@ -23,10 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs = { nixpkgs, home-manager, catppuccin, nova-chatmix, nvf, awsvpnclient,
-    neorg-overlay, ... }@inputs:
+    neorg-overlay, nix-flatpak, ... }@inputs:
     let
       home-config = { extraImports ? [ ], ... }: {
         home-manager = {
@@ -49,6 +50,7 @@
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           awsvpnclient.nixosModules.default
+          nix-flatpak.nixosModules.nix-flatpak
           { programs.awsvpnclient.enable = true; }
           { nixpkgs.overlays = [ neorg-overlay.overlays.default ]; }
           ./hosts/hornet.nix
@@ -62,6 +64,7 @@
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           awsvpnclient.nixosModules.default
+          nix-flatpak.nixosModules.nix-flatpak
           { programs.awsvpnclient.enable = true; }
           { nixpkgs.overlays = [ neorg-overlay.overlays.default ]; }
           ./hosts/raptor.nix

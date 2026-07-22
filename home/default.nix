@@ -4,10 +4,20 @@
 
     username = "tebro";
     homeDirectory = "/home/tebro";
-    sessionVariables = { SSH_AUTH_SOCK = "/run/user/1000/ssh-agent"; };
+    sessionVariables = {
+      SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+      XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+    };
     stateVersion = "26.05";
     packages = with pkgs; [ liberation_ttf ];
     pointerCursor.enable = true;
+
+    file.".profile" = {
+      enable = true;
+      text = ''
+        export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+      '';
+    };
   };
   xdg = {
     enable = true;

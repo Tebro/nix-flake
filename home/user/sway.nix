@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, config, lib,...}: {
 
   imports = [./waybar.nix];
   programs.rofi.enable = true;
@@ -50,6 +50,11 @@
       input."*".xkb_layout = "us,fi";
       input."*".xkb_options = "grp:win_space_toggle";
       menu = "rofi -show run";
+
+      keybindings = let modifier = config.wayland.windowManager.sway.config.modifier;
+      in lib.mkOptionDefault {
+        "${modifier}+Shift+d" = "exec 'rofi -show drun'";
+      };
 
       bars = [
         { command = "waybar";}

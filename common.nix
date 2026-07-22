@@ -12,7 +12,7 @@
     ./system/firewall.nix
     ./system/virtualisation.nix
     ./system/services.nix
-    #./system/flatpak.nix
+    ./system/flatpak.nix
     ./system/certificates.nix
     ./system/gaming.nix
     ./system/shell.nix
