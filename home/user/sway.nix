@@ -66,6 +66,7 @@
           "${modifier}+Shift+s" = "exec 'hyprshot -m region --clipboard-only'";
           "${modifier}+n" = "exec 'dunstctl history-pop'";
           "${modifier}+Shift+n" = "exec 'dunstctl close-all'";
+          "${modifier}+Shift+p" = "exec 'loginctl lock-session'";
         };
 
       bars = [
