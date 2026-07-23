@@ -42,7 +42,6 @@
         "format-en" = "🇺🇸";
       };
       cpu = {
-
         format = "🏎️ ⚡ {usage}%";
         interval = 5;
       };
@@ -86,12 +85,12 @@
             }
             #cpu, #memory, #pulseaudio, #backlight, #tray, #battery, #language, #custom-dunst, #idle_inhibitor {
               margin-right: 10px;
-              margin-top: 5px;
-              margin-bottom: 5px;
+              margin-top: 3px;
+              margin-bottom: 3px;
               border: 2px solid rgba(0, 0, 0, 0.3);
       				border-radius: 5px;
               background: rgba(10, 10, 10, 0.3);
-              padding: 5px;
+              padding: 3px;
             }
             #language, #idle_inhibitor {
             	min-width: 25px;
