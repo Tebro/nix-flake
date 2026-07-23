@@ -56,6 +56,7 @@
       jq
       postgresql
       nodejs_22
+      hyprshot
     ];
 
     sessionVariables = rec {
@@ -114,4 +115,10 @@
       }
     ];
   };
+  fonts.fontDir.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    liberation_ttf
+  ];
 }

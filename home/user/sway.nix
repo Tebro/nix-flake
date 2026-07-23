@@ -54,6 +54,9 @@
       keybindings = let modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {
         "${modifier}+Shift+d" = "exec 'rofi -show drun'";
+        "${modifier}+Shift+s" = "exec 'hyprshot -m region --clipboard-only'";
+        "${modifier}+n" = "exec 'dunstctl history-pop'";
+        "${modifier}+Shift+n" = "exec 'dunstctl close-all'";
       };
 
       bars = [
