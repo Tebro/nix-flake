@@ -1,6 +1,12 @@
-{ pkgs, config, lib,...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
 
-  imports = [./waybar.nix];
+  imports = [ ./waybar.nix ];
   programs.rofi.enable = true;
   programs.hyprlock.enable = true;
   services = {
@@ -51,16 +57,19 @@
       input."*".xkb_options = "grp:win_space_toggle";
       menu = "rofi -show run";
 
-      keybindings = let modifier = config.wayland.windowManager.sway.config.modifier;
-      in lib.mkOptionDefault {
-        "${modifier}+Shift+d" = "exec 'rofi -show drun'";
-        "${modifier}+Shift+s" = "exec 'hyprshot -m region --clipboard-only'";
-        "${modifier}+n" = "exec 'dunstctl history-pop'";
-        "${modifier}+Shift+n" = "exec 'dunstctl close-all'";
-      };
+      keybindings =
+        let
+          modifier = config.wayland.windowManager.sway.config.modifier;
+        in
+        lib.mkOptionDefault {
+          "${modifier}+Shift+d" = "exec 'rofi -show drun'";
+          "${modifier}+Shift+s" = "exec 'hyprshot -m region --clipboard-only'";
+          "${modifier}+n" = "exec 'dunstctl history-pop'";
+          "${modifier}+Shift+n" = "exec 'dunstctl close-all'";
+        };
 
       bars = [
-        { command = "waybar";}
+        { command = "waybar"; }
       ];
 
       window = {
@@ -73,7 +82,7 @@
       };
 
       startup = [
-        {command = "nm-applet";}
+        { command = "nm-applet"; }
       ];
 
     };
