@@ -8,12 +8,16 @@
     ../system/sshd.nix
     ../system/star-citizen.nix
   ];
-  swapDevices = [{
-    device = "/.swapfile";
-    size = 8 * 1024;
-  }];
-
-  environment.systemPackages = with pkgs; [ nvtopPackages.amd ];
+  swapDevices = [
+    {
+      device = "/.swapfile";
+      size = 8 * 1024;
+    }
+  ];
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.amd
+    linuxPackages.universal-pidff
+  ];
 
   # Star citizen requirements
   boot.kernel.sysctl = {
