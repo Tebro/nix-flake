@@ -21,7 +21,17 @@
     "fs.file-max" = 524288;
   };
 
-  networking.hostName = "raptor"; # Define your hostname.
+  networking = {
+    hostName = "raptor";
+    interfaces = {
+      eno1 = {
+        wakeOnLan.enable = true;
+      };
+    };
+    firewall = {
+      allowedUDPPorts = [ 9 ];
+    };
+  };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
