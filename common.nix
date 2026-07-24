@@ -57,6 +57,7 @@
       postgresql
       nodejs_22
       hyprshot
+      clamav
     ];
 
     sessionVariables = rec {
@@ -85,6 +86,11 @@
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
+
+    clamav = {
+      daemon.enable = true;
+      updater.enable = true;
+    };
   };
   security.pam.services.sddm.enableGnomeKeyring = true;
   catppuccin = {
