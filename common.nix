@@ -81,8 +81,8 @@
         enable = true;
         settings.screencast = {
           max_fps = 60;
-          chooser_type = "simple";
-          chooser_cmd = "${pkgs.slurp}/bin/slurp -f 'Monitor: %o' -or";
+          chooser_type = "dmenu";
+          chooser_cmd = "${pkgs.rofi}/bin/rofi -dmenu";
           # Not really needed with window picking
           # exec_before = "${pkgs.dunst}/bin/dunstctl set-paused true";
           # exec_after = "${pkgs.dunst}/bin/dunstctl set-paused false";
