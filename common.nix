@@ -58,6 +58,7 @@
       nodejs_22
       hyprshot
       clamav
+      slurp
     ];
 
     sessionVariables = rec {
@@ -72,6 +73,22 @@
     };
 
     variables.EDITOR = "nvim";
+  };
+  xdg = {
+    portal = {
+      enable = true;
+      wlr = {
+        enable = true;
+        settings.screencast = {
+          max_fps = 60;
+          chooser_type = "simple";
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -f 'Monitor: %o' -or";
+        };
+      };
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
   };
   services = {
     displayManager = {
