@@ -56,9 +56,9 @@
       jq
       postgresql
       nodejs_22
-      hyprshot
       clamav
       slurp
+      wl-clipboard
     ];
 
     sessionVariables = rec {
