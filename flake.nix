@@ -22,28 +22,49 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-citizen = {
+      url = "github:LovingMelody/nix-citizen";
+      inputs.nix-gaming.follows = "nix-gaming";
+    };
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, nova-chatmix, nvf, awsvpnclient,
-    neorg-overlay, nix-flatpak, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      catppuccin,
+      nova-chatmix,
+      nvf,
+      awsvpnclient,
+      neorg-overlay,
+      nix-flatpak,
+      ...
+    }@inputs:
     let
-      home-config = { extraImports ? [ ], ... }: {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          backupFileExtension = "backup";
-          users.tebro = {
-            imports = [
-              ./home
-              catppuccin.homeModules.catppuccin
-              nvf.homeManagerModules.default
-            ] ++ extraImports;
+      home-config =
+        {
+          extraImports ? [ ],
+          ...
+        }:
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "backup";
+            users.tebro = {
+              imports = [
+                ./home
+                catppuccin.homeModules.catppuccin
+                nvf.homeManagerModules.default
+              ]
+              ++ extraImports;
+            };
           };
         };
-      };
-    in {
+    in
+    {
       nixosConfigurations.hornet = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
