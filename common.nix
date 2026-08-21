@@ -66,6 +66,7 @@
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
+      XKB_CONFIG_ROOT = "${pkgs.xkeyboard_config}/share/X11/xkb";
 
       # Not officially in the specification
       XDG_BIN_HOME = "$HOME/.local/bin";
@@ -126,7 +127,27 @@
       enable = true;
       wrapperFeatures.gtk = true;
     };
-    nix-ld.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        alsa-lib
+        fontconfig
+        freetype
+        glib
+        libGL
+        libgit2
+        libx11
+        libxcb
+        libxext
+        libxkbcommon
+        openssl
+        sqlite
+        vulkan-loader
+        wayland
+        zlib
+        zstd
+      ];
+    };
     nm-applet.enable = true;
 
     neovim = {
