@@ -34,6 +34,7 @@ in
       text = ''
         #!${pkgs.runtimeShell}
         export LD_LIBRARY_PATH="${deltaLibraryPath}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+        export XKB_CONFIG_ROOT="${pkgs.xkeyboard_config}/share/X11/xkb"
         exec "$HOME/.local/delta.app/bin/delta" "$@"
       '';
     };
