@@ -26,6 +26,7 @@
   nixpkgs.config.allowUnfree = true;
   environment = {
     systemPackages = with pkgs; [
+      bubblewrap
       cryptsetup
       neovim
       wget
