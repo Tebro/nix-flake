@@ -60,6 +60,8 @@
       clamav
       slurp
       wl-clipboard
+      opencode
+      opencode-desktop
     ];
 
     sessionVariables = rec {
