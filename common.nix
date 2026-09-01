@@ -36,6 +36,8 @@
       gdb
       cargo
       nodejs
+			go
+			python3
       playerctl
       tldr
       pavucontrol
