@@ -64,6 +64,7 @@
       wl-clipboard
       opencode
       opencode-desktop
+			appimage-run
     ];
 
     sessionVariables = rec {
