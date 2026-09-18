@@ -65,6 +65,7 @@
       opencode
       opencode-desktop
 			appimage-run
+			proton-vpn
     ];
 
     sessionVariables = rec {
