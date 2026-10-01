@@ -6,7 +6,7 @@
 			extraPackages = [
 				pkgs.gamescope
 			];
-			#gamescopeSession.enable = true;
+			gamescopeSession.enable = true;
 		};
     gamemode.enable = true;
   };

@@ -28,6 +28,10 @@
     };
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+		herdr = {
+			url = "github:herdrdev/herdr/v0.9.3";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
   outputs =

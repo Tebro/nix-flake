@@ -64,6 +64,8 @@
       wl-clipboard
       opencode
       opencode-desktop
+			codex
+			inputs.herdr.packages.x86_64-linux.default
 			appimage-run
 			proton-vpn
     ];
@@ -108,7 +110,6 @@
         wayland.enable = true;
         package = pkgs.kdePackages.sddm;
       };
-      defaultSession = "sway";
     };
 
     gnome.gnome-keyring.enable = true;
