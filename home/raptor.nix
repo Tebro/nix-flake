@@ -2,7 +2,7 @@
   # enabled in default
   programs.btop.package = pkgs.btop.override { rocmSupport = true; };
 
-  home.packages = with pkgs; [ opentrack aitrack ];
+  home.packages = with pkgs; [ opentrack aitrack steamcmd ];
 
   home.file = {
     ".local/bin/opentrack-launcher" = {

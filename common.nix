@@ -66,8 +66,12 @@
       opencode-desktop
 			codex
 			inputs.herdr.packages.x86_64-linux.default
+			inputs.chatgpt.packages.x86_64-linux.default
 			appimage-run
 			proton-vpn
+			prusa-slicer
+			runelite
+			bolt-launcher
     ];
 
     sessionVariables = rec {

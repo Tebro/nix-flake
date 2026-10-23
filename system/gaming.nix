@@ -7,8 +7,9 @@
 				pkgs.gamescope
 			];
 			gamescopeSession.enable = true;
+			remotePlay.openFirewall = true;
 		};
-    gamemode.enable = true;
+    #gamemode.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

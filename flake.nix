@@ -32,6 +32,11 @@
 			url = "github:herdrdev/herdr/v0.9.3";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		chatgpt = {
+			url = "github:csoftware-arigpt/nixos-chatgpt";
+			# Keep Qt and the C++ runtime compatible with Plasma's plugins.
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
   outputs =
