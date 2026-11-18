@@ -39,19 +39,6 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-
-	services.displayManager = {
-		sddm = {
-			enable = true;
-			wayland.enable = true;
-		};
-		autoLogin = {
-			enable = true;    
-			user = "tebro";
-		};
-    defaultSession = "steam";
-	};
-
   # May need to figure out protopedal for steering wheel
   # https://gitlab.com/openirseny/protopedal
   # TMFF2 driver for steering wheel

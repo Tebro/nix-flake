@@ -37,6 +37,10 @@
 			# Keep Qt and the C++ runtime compatible with Plasma's plugins.
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		claude-desktop = {
+			url = "github:aaddrick/claude-desktop-debian";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
   outputs =

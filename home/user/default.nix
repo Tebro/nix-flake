@@ -3,7 +3,7 @@
     #./config.nix
     ./scripts.nix
     ./git.nix
-    ./sway.nix
+    # ./sway.nix
     ./shell.nix
     ./syncthing.nix
     ./pipewire.nix

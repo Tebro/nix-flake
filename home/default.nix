@@ -10,7 +10,7 @@
     };
     stateVersion = "26.05";
     packages = with pkgs; [ liberation_ttf ];
-    pointerCursor.enable = true;
+    # pointerCursor.enable = true;
 
     file.".profile" = {
       enable = true;
@@ -69,19 +69,19 @@
     ssh.enableDefaultConfig = false;
   };
 
-  gtk = {
-    enable = true;
-    colorScheme = "dark";
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   colorScheme = "dark";
+  #   gtk3.extraConfig = {
+  #     Settings = ''
+  #       gtk-application-prefer-dark-theme=1
+  #     '';
+  #   };
+  #   gtk4.extraConfig = {
+  #     Settings = ''
+  #       gtk-application-prefer-dark-theme=1
+  #     '';
+  #   };
+  # };
   services.ssh-agent.enable = true;
 }

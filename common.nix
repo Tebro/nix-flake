@@ -27,6 +27,7 @@
   environment = {
     systemPackages = with pkgs; [
       bubblewrap
+			socat
       cryptsetup
       neovim
       wget
@@ -53,7 +54,7 @@
       bolt-launcher
       nixd
       nil
-      evince
+      # evince
       unzip
       awscli2
       jq
@@ -66,7 +67,12 @@
       opencode-desktop
 			codex
 			inputs.herdr.packages.x86_64-linux.default
-			inputs.chatgpt.packages.x86_64-linux.default
+			(inputs.chatgpt.packages.x86_64-linux.default.overrideAttrs (oldAttrs: {
+				# Required by resources/native/remote-control-device-key.node.
+				buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ pkgs.tpm2-tss ];
+			}))
+			inputs.claude-desktop.packages.x86_64-linux.claude-desktop
+			claude-code
 			appimage-run
 			proton-vpn
 			prusa-slicer
@@ -91,32 +97,32 @@
   xdg = {
     portal = {
       enable = true;
-      wlr = {
-        enable = true;
-        settings.screencast = {
-          max_fps = 60;
-          chooser_type = "dmenu";
-          chooser_cmd = "${pkgs.rofi}/bin/rofi -dmenu";
-          # Not really needed with window picking
-          # exec_before = "${pkgs.dunst}/bin/dunstctl set-paused true";
-          # exec_after = "${pkgs.dunst}/bin/dunstctl set-paused false";
-        };
-      };
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      # wlr = {
+      #   enable = true;
+      #   settings.screencast = {
+      #     max_fps = 60;
+      #     chooser_type = "dmenu";
+      #     chooser_cmd = "${pkgs.rofi}/bin/rofi -dmenu";
+      #     # Not really needed with window picking
+      #     # exec_before = "${pkgs.dunst}/bin/dunstctl set-paused true";
+      #     # exec_after = "${pkgs.dunst}/bin/dunstctl set-paused false";
+      #   };
+      # };
+      # extraPortals = [
+      #   pkgs.xdg-desktop-portal-gtk
+      # ];
     };
   };
   services = {
+		desktopManager.plasma6.enable = true;
     displayManager = {
       sddm = {
         enable = true;
         wayland.enable = true;
-        package = pkgs.kdePackages.sddm;
       };
-    };
+		};
 
-    gnome.gnome-keyring.enable = true;
+    # gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
 
@@ -133,12 +139,12 @@
   };
 
   programs = {
-    thunar.enable = true;
+    # thunar.enable = true;
     xfconf.enable = true;
-    sway = {
-      enable = true;
-      wrapperFeatures.gtk = true;
-    };
+    # sway = {
+    #   enable = true;
+    #   wrapperFeatures.gtk = true;
+    # };
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -160,18 +166,18 @@
         zstd
       ];
     };
-    nm-applet.enable = true;
+    # nm-applet.enable = true;
 
     neovim = {
       enable = true;
     };
 
     # sudo nix-channel update
-    dconf.profiles.user.databases = [
-      {
-        settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-      }
-    ];
+    # dconf.profiles.user.databases = [
+    #   {
+    #     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    #   }
+    # ];
   };
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
